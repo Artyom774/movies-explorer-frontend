@@ -1,4 +1,4 @@
-function App() {
+function App(propps) {
   return (
     <div className="App">
       Проверка
