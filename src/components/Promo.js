@@ -1,10 +1,11 @@
 import React from 'react';
+import logo from '../images/header__logo.svg';
 
 function Promo() {
   return (
-    <section className="promo">
-
-    </section>
+    <header className="promo">
+      <img className="header__logo" src={logo} alt="лого" />
+    </header>
   );
 }
 
