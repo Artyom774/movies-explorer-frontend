@@ -1,0 +1,8 @@
+.header__link_type_sign-in {
+  margin-right: 0;
+  display: inline-block;
+  background-color: #3456f3;
+  padding: 8px 20px;
+  color: white;
+  border-radius: 3px;
+}

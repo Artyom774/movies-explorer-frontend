@@ -12,8 +12,10 @@ function Main() {
     <div className="page">
       <header className="header">
         <img className="header__logo" src={logo} alt="лого" />
-        <button className="header__registration-button">Регистрация</button>
-        <button className="header__sign-in-button">Войти</button>
+        <div className="header__links">
+          <a className="header__link" href="#">Регистрация</a>
+          <a className="header__link header__link_type_sign-in" href="#">Войти</a>
+        </div>
       </header>
       <main className="main">
         <section className="promo">
