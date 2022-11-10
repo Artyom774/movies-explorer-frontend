@@ -19,10 +19,12 @@ function Main() {
       </header>
       <main className="main">
         <section className="promo">
-          <h1 className="promo__title">Учебный проект студента факультета Веб-разработки.</h1>
-          <p className="promo__subtitle">Листайте ниже, чтобы узнать больше про этот проект и его создателя.</p>
-          <a className="promo__link" href="#about-project">Узнать больше</a>
           <img className="promo__image" src={planet} alt="веб-мир" />
+          <div className="promo__container">
+            <h1 className="promo__title">Учебный проект студента факультета Веб-разработки.</h1>
+            <p className="promo__subtitle">Листайте ниже, чтобы узнать больше про этот проект и его создателя.</p>
+            <a className="promo__link" href="#about-project">Узнать больше</a>
+          </div>
         </section>
         <section className="about-project" id="about-project">
 
