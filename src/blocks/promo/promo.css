@@ -1,0 +1,9 @@
+.promo {
+  display: flex;
+  flex-direction: row-reverse ;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 75px 70px;
+  background-color: #dddee3;
+  justify-content: space-between;
+}

@@ -1,0 +1,13 @@
+.promo__link {
+  margin: 0 ;
+  padding: 10px 20px;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  color: black;
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
