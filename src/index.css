@@ -13,3 +13,12 @@
   @import url('./blocks/promo/__title/promo__title.css');
   @import url('./blocks/promo/__subtitle/promo__subtitle.css');
   @import url('./blocks/promo/__link/promo__link.css');
+@import url('./blocks/about-project/about-project.css');
+  @import url('./blocks/about-project/__title/about-project__title.css');
+  @import url('./blocks/about-project/__info-container/about-project__info-container.css');
+  @import url('./blocks/about-project/__container-caption/about-project__container-caption.css');
+  @import url('./blocks/about-project/__container-text/about-project__container-text.css');
+  @import url('./blocks/about-project/__time-container/about-project__time-container.css');
+  @import url('./blocks/about-project/__time-line/about-project__time-line.css');
+    @import url('./blocks/about-project/__time-line/_theme/about-project__time-line_theme_blue');
+  @import url('./blocks/about-project/__time-sign/about-project__time-sign.css');
