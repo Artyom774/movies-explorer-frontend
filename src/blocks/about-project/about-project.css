@@ -1,0 +1,7 @@
+.about-project {
+  display: flex;
+  flex-direction: column;
+  padding: 110px 70px;
+  width: 100%;
+  box-sizing: border-box;
+}
