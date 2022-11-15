@@ -1,0 +1,4 @@
+.about-project__time-container {
+  display: flex;
+  flex-direction: column;
+}

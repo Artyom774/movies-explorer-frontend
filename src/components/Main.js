@@ -39,12 +39,12 @@ function Main() {
             </div>
           </div>
           <div className="about-project__time-blog">
-            <div className="about-project__time-container">
+            <div className="about-project__time-container about-project__time-container_size_20-percent">
               <p className="about-project__time-line about-project__time-line_theme_blue">1 неделя</p>
               <p className="about-project__time-sign">Back-end</p>
             </div>
-            <div className="about-project__time-container">
-              <p className="about-project__time-line about-project__time-line_theme_blue">4 недели</p>
+            <div className="about-project__time-container about-project__time-container_size_80-percent">
+              <p className="about-project__time-line">4 недели</p>
               <p className="about-project__time-sign">Front-end</p>
             </div>
           </div>

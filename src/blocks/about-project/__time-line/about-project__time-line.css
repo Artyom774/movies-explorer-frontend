@@ -1,0 +1,11 @@
+.about-project__time-line {
+  margin: 0 0 14px;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 36px;
+  display: inline-block;
+  background-color: #F2F2F2;
+  text-align: center;
+  box-sizing: border-box;
+}
