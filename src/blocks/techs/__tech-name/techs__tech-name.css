@@ -1,0 +1,16 @@
+.techs__tech-name {
+  display: inline-block;
+  margin: 0 10px 0 0;
+  padding: 0;
+  width: 90px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 60px;
+  background-color: #e8e8e8;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.techs__tech-name:last-of-type {
+  margin-right: 0;
+}

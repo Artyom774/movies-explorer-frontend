@@ -27,7 +27,7 @@ function Main() {
           </div>
         </section>
         <section className="about-project" id="about-project">
-          <h2 className="about-project__title">О проекте</h2>
+          <h2 className="section-title">О проекте</h2>
           <div className="about-project__info-blog">
             <div className="about-project__info-container">
               <p className="about-project__container-caption">Дипломный проект включал 5 этапов</p>
@@ -47,6 +47,20 @@ function Main() {
               <p className="about-project__time-line">4 недели</p>
               <p className="about-project__time-sign">Front-end</p>
             </div>
+          </div>
+        </section>
+        <section className="techs">
+          <h2 className="section-title">Технологии</h2>
+          <h3 className="techs__subtitle">7 технологий</h3>
+          <p className="techs__text">На курсе веб-разработки мы освоили технологии, которые применили в дипломном проекте.</p>
+          <div className="techs__block">
+            <p className="techs__tech-name">HTML</p>
+            <p className="techs__tech-name">CSS</p>
+            <p className="techs__tech-name">JS</p>
+            <p className="techs__tech-name">React</p>
+            <p className="techs__tech-name">Git</p>
+            <p className="techs__tech-name">Express.js</p>
+            <p className="techs__tech-name">mpongoDB</p>
           </div>
         </section>
       </main>
