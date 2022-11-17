@@ -73,8 +73,7 @@ function Main() {
             с расчётом спектра, что требовало написания отдельной программы. В процессе работы приходилось изучать программирование самостоятельно, 
             что понравилось, так как это даёт свободу действий и подталкивает к самостоятельному развитию. Выбрал именно веб-разработку ввиду 
             наглядности результата и возможности хорошего повсеместного представления, достаточно отправить ссылку на сайт.<br />
-Закончил музыкальную школу и до сих пор играю на пианино. Ещё увлекаюсь космонавтикой и астрономией.
-</p>
+            Закончил музыкальную школу и до сих пор играю на пианино. Ещё увлекаюсь космонавтикой и астрономией.</p>
             <a className="about-me__link" href="https://github.com/Artyom774">Github</a>
           </div>
           <img className="about-me__photo" src={studentPhoto} alt="фото студента" />
@@ -96,7 +95,12 @@ function Main() {
         </section>
       </main>
       <footer className="footer">
-
+        <p className="footer__text">Учебный проект Яндекс.Практикум x BeatFilm.</p>
+        <div className="footer__down-row">
+          <p className="footer__year">&copy; 2022</p>
+          <a className="footer__link" href="https://practicum.yandex.ru/web/">Яндекс.Практикум</a>
+          <a className="footer__link" href="https://github.com/Artyom774">Github</a>
+        </div>
       </footer>
     </div>
   );
