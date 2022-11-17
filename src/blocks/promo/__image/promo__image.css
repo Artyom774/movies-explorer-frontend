@@ -1,5 +1,12 @@
-.promo-image {
+.promo__image {
   width: 310px;
   height: 304px;
-  object-fit: contain;
+  object-fit: cover;
+  margin: 0 auto 48px;
+}
+
+@media (min-width: 1280px) {
+  .promo__image {
+    margin: 0;
+  }
 }

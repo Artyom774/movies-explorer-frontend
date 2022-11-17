@@ -1,5 +1,5 @@
 .promo__link {
-  margin: 0 ;
+  margin: 0 auto;
   padding: 10px 20px;
   font-size: 12px;
   line-height: 16px;
@@ -10,4 +10,10 @@
   border: 1px solid black;
   border-radius: 3px;
   box-sizing: border-box;
+}
+
+@media (min-width: 1280px) {
+  .promo__link {
+    margin: 0 auto 0 0;
+  }
 }

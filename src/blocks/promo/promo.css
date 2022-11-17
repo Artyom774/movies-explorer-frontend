@@ -1,9 +1,16 @@
 .promo {
   display: flex;
-  flex-direction: row-reverse ;
+  flex-direction: column;
   width: 100%;
   box-sizing: border-box;
-  padding: 75px 70px;
+  padding: 140px 50px 76px;
   background-color: #dddee3;
   justify-content: space-between;
+}
+
+@media (min-width: 1280px) {
+  .promo {
+    padding: 75px 70px;
+    flex-direction: row-reverse;
+  }
 }

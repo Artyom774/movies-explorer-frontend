@@ -1,9 +1,16 @@
 .promo__subtitle {
-  width: 310px;
-  margin: 0 0 146px;
+  width: 260px;
+  margin: 0 auto 92px;
   padding: 0;
   font-size: 13px;
   font-weight: 400;
   line-height: 16px;
   opacity: .5;
+}
+
+@media (min-width: 1280px) {
+  .promo__subtitle {
+    width: 310px;
+    margin: 0 0 146px;
+  }
 }
