@@ -1,0 +1,17 @@
+.portfolio__link {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 19px;
+  border-bottom: 1px solid #E8E8E8;
+  margin-bottom: 20px;
+  text-decoration: none;
+}
+
+.portfolio__link:last-of-type {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: none;
+}

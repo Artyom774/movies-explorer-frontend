@@ -1,0 +1,10 @@
+.portfolio__link-text {
+  margin: 0;
+  padding: 0;
+  width: 80%;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 50px;
+  color: black;
+  text-decoration: none;
+}
