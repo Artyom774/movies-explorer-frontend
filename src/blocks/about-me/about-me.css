@@ -1,0 +1,10 @@
+.about-me {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 110px 70px 100px;
+  background-color: #fafafa;
+  box-sizing: border-box;
+  justify-content: space-between;
+}

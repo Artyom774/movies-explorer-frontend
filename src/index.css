@@ -31,3 +31,12 @@
   @import url('./blocks/techs/__text/techs__text.css');
   @import url('./blocks/techs/__block/techs__block.css');
   @import url('./blocks/techs/__tech-name/techs__tech-name.css');
+@import url('./blocks/about-me/about-me.css');
+  @import url('./blocks/about-me/__info/about-me__info.css');
+  @import url('./blocks/about-me/__name/about-me__name.css');
+  @import url('./blocks/about-me/__status/about-me__status.css');
+  @import url('./blocks/about-me/__description/about-me__description.css');
+  @import url('./blocks/about-me/__link/about-me__link.css');
+  @import url('./blocks/about-me/__photo/about-me__photo.css');
+@import url('./blocks/portfolio/portfolio.css');
+@import url('./blocks/footer/footer.css');

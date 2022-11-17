@@ -1,0 +1,6 @@
+.about-me__info {
+  display: flex;
+  flex-direction: column;
+  margin-top: 66px;
+  width: 47%;
+}
