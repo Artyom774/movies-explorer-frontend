@@ -1,8 +1,14 @@
 .about-project__container-caption {
   width: 100%;
-  margin: 0 0 26px;
+  margin: 0 0 22px;
   padding: 0;
   font-size: 20px;
   font-weight: 400;
   line-height: 24px;
+}
+
+@media (min-width: 1280px) {
+  .about-project__container-caption {
+    margin-bottom: 26px;
+  }
 }

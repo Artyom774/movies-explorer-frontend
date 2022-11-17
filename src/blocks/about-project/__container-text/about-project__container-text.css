@@ -6,3 +6,10 @@
   font-weight: 400;
   line-height: 20px;
 }
+
+@media (min-width: 1280px) {
+  .about-project__container-text {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
