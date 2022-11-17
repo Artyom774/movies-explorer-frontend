@@ -14,3 +14,11 @@
 .techs__tech-name:last-of-type {
   margin-right: 0;
 }
+
+@media (min-width: 1280px) {
+  .techs__tech-name {
+    width: 84px;
+    font-size: 12px;
+    line-height: 53px;
+  }
+}
