@@ -1,8 +1,16 @@
 .promo__image {
-  width: 310px;
-  height: 304px;
+  width: 210px;
+  height: 206px;
   object-fit: cover;
-  margin: 0 auto 48px;
+  margin: 0 auto 44px;
+}
+
+@media (min-width: 768px) {
+  .promo__image {
+    width: 310px;
+    height: 304px;
+    margin-bottom: 48px;
+  }
 }
 
 @media (min-width: 1280px) {
