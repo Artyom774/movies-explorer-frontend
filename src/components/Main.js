@@ -61,7 +61,7 @@ function Main() {
             <p className="techs__tech-name">React</p>
             <p className="techs__tech-name">Git</p>
             <p className="techs__tech-name">Express.js</p>
-            <p className="techs__tech-name">mpongoDB</p>
+            <p className="techs__tech-name">mongoDB</p>
           </div>
         </section>
         <section className="about-me">

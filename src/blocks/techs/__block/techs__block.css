@@ -1,5 +1,14 @@
 .techs__block {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin: 0 auto;
+  flex-wrap: wrap;
+  width: 178px;
+}
+
+@media (min-width: 768px) {
+  .techs__block {
+    padding: 0;
+    width: 100%;
+  }
 }
