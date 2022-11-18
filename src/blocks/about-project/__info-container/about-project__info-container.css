@@ -1,5 +1,11 @@
 .about-project__info-container {
   display: flex;
   flex-direction: column;
-  width: 48%;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .about-project__info-container {
+    width: 48%
+  }
 }

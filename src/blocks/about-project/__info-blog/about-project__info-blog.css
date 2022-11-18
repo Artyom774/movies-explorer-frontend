@@ -1,6 +1,14 @@
 .about-project__info-blog {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-top: 70px;
+  flex-direction: column;
+  justify-content: start;
+  margin-top: 60px;
+}
+
+@media (min-width: 768px) {
+  .about-project__info-blog {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 70px;
+  }
 }
