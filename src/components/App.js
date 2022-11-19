@@ -1,13 +1,39 @@
 import React from 'react';
-import { Route, Router, Switch, Redirect, withRouter } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Main from './Main';
-import Header from './Header';
-import Footer from './Footer';
+import Movies from './Movies';
+import SavedMovies from './SavedMovies';
+import Profile from './Profile';
+import Login from './Login';
+import Register from './Register';
+import NotFound from './NotFound';
 
 function App() {
   return (
     <div className="App">
-      <Main />
+      <Switch>
+        <Route exact path="/movies">
+          <Movies />
+        </Route>
+        <Route exact path="/saved-movies">
+          <SavedMovies />
+        </Route>
+        <Route exact path="/profile">
+          <Profile />
+        </Route>
+        <Route exact path="/signin">
+          <Login />
+        </Route>
+        <Route exact path="/signup">
+          <Register />
+        </Route>
+        <Route exact path="/">
+          <Main />
+        </Route>
+        <Route path="/">
+          <NotFound />
+        </Route>
+      </Switch>
     </div>
   );
 }
