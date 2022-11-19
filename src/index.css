@@ -48,4 +48,5 @@
   @import url('./blocks/footer/__text/footer__text.css');
   @import url('./blocks/footer/__down-row/footer__down-row.css');
   @import url('./blocks/footer/__year/footer__year.css');
+  @import url('./blocks/footer/__links/footer__links.css');
   @import url('./blocks/footer/__link/footer__link.css');

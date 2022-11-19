@@ -1,13 +1,12 @@
-.footer__down-row {
-  width: 100%;
+.footer__links {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
 }
 
 @media (min-width: 768px) {
-  .footer__down-row {
-    flex-direction: row-reverse;
+  .footer__links {
+    flex-direction: row;
     margin: 0;
   }
 }

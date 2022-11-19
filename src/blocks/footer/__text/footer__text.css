@@ -1,11 +1,20 @@
 .footer__text {
   width: 100%;
-  margin: 0 0 20px;
-  padding: 0 0 20px;
-  font-size: 13px;
+  margin: 0 0 30px;
+  padding: 0 0 21px;
+  font-size: 12px;
   font-weight: 400;
-  line-height: 16px;
+  line-height: 15px;
   text-align: center;
   color: #a0a0a0;
   border-bottom: 1px solid #e8e8e8;
+}
+
+@media (min-width: 768px) {
+  .footer__text {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    line-height: 16px;
+  }
 }
