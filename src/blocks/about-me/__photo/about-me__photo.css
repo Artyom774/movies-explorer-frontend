@@ -1,9 +1,17 @@
 .about-me__photo {
-  width: 255px;
-  height: 307px;
+  width: 292px;
+  height: 352px;
   object-fit: cover;
   border-radius: 10px;
-  margin-top: 66px;
+  margin: 60px auto 40px;
+}
+
+@media (min-width: 768px) {
+  .about-me__photo {
+    width: 255px;
+    height: 307px;
+    margin: 66px 0 0;
+  }
 }
 
 @media (min-width: 1280px) {
