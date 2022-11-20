@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './Header';
+import MainHeader from './MainHeader';
 import Promo from './Promo';
 import AboutProject from './AboutProject';
 import Techs from './Techs';
@@ -10,7 +10,7 @@ import Footer from './Footer';
 function Main() {
   return (
     <div className="page">
-      <Header />
+      <MainHeader />
       <main className="main">
         <Promo />
         <AboutProject />
