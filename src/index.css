@@ -57,3 +57,12 @@
   @import url('./blocks/footer/__year/footer__year.css');
   @import url('./blocks/footer/__links/footer__links.css');
   @import url('./blocks/footer/__link/footer__link.css');
+@import url('./blocks/search-form-section/search-form-section.css');
+@import url('./blocks/search-form/search-form.css');
+  @import url('./blocks/search-form/__input-block/search-form__input-block.css');
+  @import url('./blocks/search-form/__input/search-form__input.css');
+  @import url('./blocks/search-form/__submit/search-form__submit.css');
+  @import url('./blocks/search-form/__flex-block/search-form__flex-block.css');
+  @import url('./blocks/search-form/__text/search-form__text.css');
+  @import url('./blocks/search-form/__filter/search-form__filter.css');
+    @import url('./blocks/search-form/__filter/_activated/search-form__filter_activated.css');
