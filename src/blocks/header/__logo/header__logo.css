@@ -3,3 +3,8 @@
   height: 38px;
   object-fit: contain;
 }
+
+.header__logo:hover {
+  opacity: .5;
+  transition-duration: 1s;
+}

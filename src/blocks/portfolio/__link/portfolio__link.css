@@ -9,6 +9,11 @@
   text-decoration: none;
 }
 
+.portfolio__link:hover {
+  opacity: .5;
+  transition-duration: 1s;
+}
+
 .portfolio__link:last-of-type {
   padding-bottom: 0;
   margin-bottom: 0;

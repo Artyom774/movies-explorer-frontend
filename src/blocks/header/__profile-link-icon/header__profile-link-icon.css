@@ -12,6 +12,11 @@
   background-color: #f4f4f4;
 }
 
+.header__profile-link-icon:hover {
+  opacity: .5;
+  transition-duration: 1s;
+}
+
 @media (min-width: 1080px) {
   .header__profile-link-icon {
     display: inline;

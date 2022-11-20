@@ -9,6 +9,11 @@
   text-decoration: none;
 }
 
+.footer__link:hover {
+  opacity: .5;
+  transition-duration: 1s;
+}
+
 @media (min-width: 768px) {
   .footer__link {
     margin: 0 0 0 20px;

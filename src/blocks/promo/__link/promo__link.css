@@ -12,6 +12,11 @@
   box-sizing: border-box;
 }
 
+.promo__link:hover {
+  opacity: .5;
+  transition-duration: 1s;
+}
+
 @media (min-width: 1280px) {
   .promo__link {
     margin: 0 auto 0 0;

@@ -6,11 +6,11 @@ function Movies() {
   return (
     <div className="page">
       <header className="header header_theme_white">
-      <a href="/"><img className="header__logo" src={logo} alt="лого" /></a>
+      <a href="/"><img className="header__logo" src={logo} alt="лого" target="_blank" /></a>
       <div className="header__links">
-        <a className="header__link header__link_type_movies" href="/movies">Фильмы</a>
-        <a className="header__link header__link_type_saved-movies" href="/saved-movies">Сохранённые фильмы</a>
-        <a className="header__links" href="/profile">
+        <a className="header__link header__link_type_movies" href="/movies" target="_blank">Фильмы</a>
+        <a className="header__link header__link_type_saved-movies" href="/saved-movies" target="_blank">Сохранённые фильмы</a>
+        <a className="header__links" href="/profile" target="_blank">
           <p className="header__link header__link_type_profile">Аккаунт</p>
           <div className="header__profile-link-icon" />
         </a>
