@@ -7,7 +7,12 @@
   @import url('./blocks/header/__logo/header__logo.css');
   @import url('./blocks/header/__links/header__links.css');
   @import url('./blocks/header/__link/header__link.css');
+    @import url('./blocks/header/__link/_type/header__link_type_register.css');
     @import url('./blocks/header/__link/_type/header__link_type_sign-in.css');
+    @import url('./blocks/header/__link/_type/header__link_type_movies.css');
+    @import url('./blocks/header/__link/_type/header__link_type_saved-movies.css');
+    @import url('./blocks/header/__link/_type/header__link-type_profile.css');
+  @import url('./blocks/header/__profile-link-icon/header__profile-link-icon.css');
 @import url('./blocks/main/main.css');
 @import url('./blocks/section-title/section-title.css');
 @import url('./blocks/promo/promo.css');
