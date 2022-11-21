@@ -1,8 +1,16 @@
 .movies-card__time {
-  margin: 0 auto 16px 16px;
+  margin: 0 auto 14px 14px;
   padding: 0;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 400;
-  line-height: 13px;
+  line-height: 12px;
   color: #a0a0a0;
+}
+
+@media (min-width: 768px) {
+  .movies-card__time {
+    margin: 0 auto 16px 16px;
+    font-size: 11px;
+    line-height: 13px;
+  }
 }

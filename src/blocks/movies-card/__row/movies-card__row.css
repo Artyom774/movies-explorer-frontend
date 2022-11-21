@@ -1,7 +1,14 @@
 .movies-card__row {
   width: 100%;
   display: flex;
-  padding: 16px 16px 17px;
+  padding: 14px;
   justify-content: space-between;
   box-sizing: border-box;
+  align-items: center;
+}
+
+@media (min-width: 1280px) {
+  .movies-card__row {
+    padding: 16px 16px 17px;
+  }
 }
