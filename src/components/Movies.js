@@ -59,7 +59,7 @@ function Movies() {
               <img className="movies-card__poster" src={filmPoster} alt="постер" />
               <div className="movies-card__row">
                 <p className="movies-card__title">Киноальманах «100 лет дизайна»</p>
-                <button className="movies-card__like"></button>
+                <button className="movies-card__like movies-card__like_active"></button>
               </div>
               <p className="movies-card__time">1ч 47мин</p>
             </div>
@@ -67,7 +67,7 @@ function Movies() {
               <img className="movies-card__poster" src={filmPoster} alt="постер" />
               <div className="movies-card__row">
                 <p className="movies-card__title">В погоне за Бенкси</p>
-                <button className="movies-card__like"></button>
+                <button className="movies-card__like movies-card__like_active"></button>
               </div>
               <p className="movies-card__time">1ч 47мин</p>
             </div>

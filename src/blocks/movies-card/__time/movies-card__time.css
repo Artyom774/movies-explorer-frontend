@@ -1,3 +1,8 @@
 .movies-card__time {
-  
+  margin: 0 auto 16px 16px;
+  padding: 0;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 13px;
+  color: #a0a0a0;
 }

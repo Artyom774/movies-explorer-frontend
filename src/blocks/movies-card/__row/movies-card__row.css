@@ -1,3 +1,7 @@
 .movies-card__row {
-  
+  width: 100%;
+  display: flex;
+  padding: 16px 16px 17px;
+  justify-content: space-between;
+  box-sizing: border-box;
 }
