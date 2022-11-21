@@ -1,6 +1,7 @@
 import React from 'react';
 import Footer from './Footer';
 import logo from '../images/header__logo.svg';
+import filmPoster from '../images/film-poster.jpg';
 
 function Movies() {
   const [search, setSearch] = React.useState('');
@@ -21,11 +22,11 @@ function Movies() {
   return (
     <div className="page">
       <header className="header header_theme_white">
-        <a href="/"><img className="header__logo" src={logo} alt="лого" target="_blank" /></a>
+        <a href="/" target="_blank"><img className="header__logo" src={logo} alt="лого" /></a>
         <div className="header__links">
-          <a className="header__link header__link_type_movies" href="/movies" target="_blank">Фильмы</a>
-          <a className="header__link header__link_type_saved-movies" href="/saved-movies" target="_blank">Сохранённые фильмы</a>
-          <a className="header__links" href="/profile" target="_blank">
+          <a className="header__link header__link_type_movies" href="/movies">Фильмы</a>
+          <a className="header__link header__link_type_saved-movies" href="/saved-movies">Сохранённые фильмы</a>
+          <a className="header__links" href="/profile">
             <p className="header__link header__link_type_profile">Аккаунт</p>
             <div className="header__profile-link-icon" />
           </a>
@@ -45,7 +46,41 @@ function Movies() {
           </form>
         </section>
         <section className="movies-card-list">
-
+          <div className="movies-card-list__grid">
+            <div className="movies-card">
+              <img className="movies-card__poster" src={filmPoster} alt="постер" />
+              <div className="movies-card__row">
+                <p className="movies-card__title">33 слова о дизайне</p>
+                <button className="movies-card__like"></button>
+              </div>
+              <p className="movies-card__time">1ч 47мин</p>
+            </div>
+            <div className="movies-card">
+              <img className="movies-card__poster" src={filmPoster} alt="постер" />
+              <div className="movies-card__row">
+                <p className="movies-card__title">Киноальманах «100 лет дизайна»</p>
+                <button className="movies-card__like"></button>
+              </div>
+              <p className="movies-card__time">1ч 47мин</p>
+            </div>
+            <div className="movies-card">
+              <img className="movies-card__poster" src={filmPoster} alt="постер" />
+              <div className="movies-card__row">
+                <p className="movies-card__title">В погоне за Бенкси</p>
+                <button className="movies-card__like"></button>
+              </div>
+              <p className="movies-card__time">1ч 47мин</p>
+            </div>
+            <div className="movies-card">
+              <img className="movies-card__poster" src={filmPoster} alt="постер" />
+              <div className="movies-card__row">
+                <p className="movies-card__title">33 слова о дизайне</p>
+                <button className="movies-card__like"></button>
+              </div>
+              <p className="movies-card__time">1ч 47мин</p>
+            </div>
+          </div>
+          <button className="movies-card-list__button">Ещё</button> 
         </section>
       </main>
       <Footer />
