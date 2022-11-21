@@ -1,5 +1,19 @@
 .search-form__flex-block {
-  min-width: 167px;
+  min-width: 148px;
   display: flex;
   justify-content: space-between;
+  margin-top: 45px;
+}
+
+@media (min-width: 768px) {
+  .search-form__flex-block {
+    min-width: 167px;
+    margin-top: 38px;
+  }
+}
+
+@media (min-width: 1080px) {
+  .search-form__flex-block {
+    margin-top: 0;
+  }
 }

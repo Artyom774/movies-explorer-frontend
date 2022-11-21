@@ -1,5 +1,11 @@
 .search-form__input-block {
-  width: 82%;
+  width: 100%;
   display: flex;
   position: relative;
+}
+
+@media (min-width: 1080px) {
+  .search-form__input-block {
+    width: 82%;
+  }
 }
