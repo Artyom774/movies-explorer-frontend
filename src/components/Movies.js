@@ -10,7 +10,7 @@ function Movies() {
       <Header />
       <main className="main">
         <SearchForm />
-        <MoviesCardList />
+        <MoviesCardList page={"movies"} />
       </main>
       <Footer />
     </div>
