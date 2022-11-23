@@ -20,7 +20,7 @@ function SearchForm() {
     <section className="search-form-section">
       <form className="search-form" onSubmit={handleSearchSubmit}>
         <div className="search-form__input-block">
-          <input type="text" id="email-input" name="search" value={search} onChange={handleSearch} required className="search-form__input" placeholder="Фильм"></input>
+          <input type="text" id="film-input" name="search" value={search} onChange={handleSearch} required className="search-form__input" placeholder="Фильм"></input>
           <button type="submit" className="search-form__submit">Найти</button>
         </div>
         <div className="search-form__flex-block">

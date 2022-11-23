@@ -19,7 +19,7 @@ function App() {
           <SavedMovies />
         </Route>
         <Route exact path="/profile">
-          <Profile />
+          <Profile name={'Виталий'} />
         </Route>
         <Route exact path="/signin">
           <Login />
