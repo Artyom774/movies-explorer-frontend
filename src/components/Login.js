@@ -26,11 +26,11 @@ function Login() {
       <main className="main">
         <form className="form" onSubmit={handleFormSubmit}>
           <div className="form__input-block form__input-block_type_column">
-            <p className="form__field form__field_type_column">E-mail</p>
+            <p className="form__sign form__sign_type_column">E-mail</p>
             <input type="text" id="email-input" name="email" value={email} onChange={handleEmail} required className="form__input form__input_type_column" placeholder="E-mail"></input>
           </div>
-          <div className="form__input-block form__input-block_type_column">
-            <p className="form__field form__field_type_column">Пароль</p>
+          <div className="form__input-block form__input-block_type_column form__input-block_type_no-margin-bottom">
+            <p className="form__sign form__sign_type_column">Пароль</p>
             <input type="password" id="password-input" name="email" value={password} onChange={handlePassword} required className="form__input form__input_type_column" placeholder="Пароль"></input>
           </div>
           <p className="form__error">Что-то пошло не так...</p>

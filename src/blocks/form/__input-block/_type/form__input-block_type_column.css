@@ -1,0 +1,15 @@
+.form__input-block_type_column {
+  flex-direction: column;
+  align-items: center;
+  width: calc(100% - 60px);
+  max-width: 396px;
+  margin: 0 30px 24px;
+  padding: 0 0 11px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+@media (min-width: 456px) {
+  .form__input-block_type_column {
+    margin: 0 auto 24px;
+  }
+}

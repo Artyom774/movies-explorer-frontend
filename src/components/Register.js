@@ -31,19 +31,19 @@ function Register() {
       <main className="main">
         <form className="form" onSubmit={handleFormSubmit}>
           <div className="form__input-block form__input-block_type_column">
-            <p className="form__field form__field_type_column">Имя</p>
+            <p className="form__sign form__sign_type_column">Имя</p>
             <input type="text" id="name-input" name="name" value={name} onChange={handleName} required className="form__input form__input_type_column" placeholder="Имя"></input>
           </div>
           <div className="form__input-block form__input-block_type_column">
-            <p className="form__field form__field_type_column">E-mail</p>
+            <p className="form__sign form__sign_type_column">E-mail</p>
             <input type="text" id="email-input" name="email" value={email} onChange={handleEmail} required className="form__input form__input_type_column" placeholder="E-mail"></input>
           </div>
-          <div className="form__input-block form__input-block_type_column">
-            <p className="form__field form__field_type_column">Пароль</p>
+          <div className="form__input-block form__input-block_type_column form__input-block_type_no-margin-bottom">
+            <p className="form__sign form__sign_type_column">Пароль</p>
             <input type="password" id="password-input" name="email" value={password} onChange={handlePassword} required className="form__input form__input_type_column" placeholder="Пароль"></input>
           </div>
           <p className="form__error">Что-то пошло не так...</p>
-          <button type="submit" className="form__submitform__submit_theme_blue">Зарегистрироваться</button>
+          <button type="submit" className="form__submit form__submit_theme_blue">Зарегистрироваться</button>
           <div className="form__link-block">
             <p className="form__question">Уже зарегистрированы?</p>
             <a href="/signin" className="form__link">Войти</a>

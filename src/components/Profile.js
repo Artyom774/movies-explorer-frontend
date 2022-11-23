@@ -31,7 +31,6 @@ function Profile(props) {
             <p className="form__field form__field_type_row">E-mail</p>
             <input type="text" id="email-input" name="email" value={email} onChange={handleEmail} required className="form__input form__input_type_row" placeholder="E-mail"></input>
           </div>
-          <p className="form__error">Что-то пошло не так...</p>
           <button type="submit" className="form__submit">Редактировать</button>
           <button type="button" className="form__sign-out">Выйти из аккаунта</button>  
         </form>
