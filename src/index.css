@@ -94,7 +94,9 @@
   @import url('./blocks/form/__error/form__error.css');
   @import url('./blocks/form/__submit/form__submit.css');
     @import url('./blocks/form/__submit/_theme/form__submit_theme_blue.css');
+    @import url('./blocks/form/__submit/_theme/form__submit_theme_white.css');
   @import url('./blocks/form/__link-block/form__link-block.css');
   @import url('./blocks/form/__question/form__question.css');
+  @import url('./blocks/form/__sign-out/form__sign-out.css');
 
 @import url('./blocks/display/display_none.css');

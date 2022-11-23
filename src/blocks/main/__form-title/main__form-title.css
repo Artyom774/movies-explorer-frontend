@@ -3,7 +3,7 @@
   margin-block-end: 0;
   width: calc(100% - 60px);
   max-width: 396px;
-  margin: 0 30px;
+  margin: 70px 30px 80px;
   padding: 0;
   font-size: 24px;
   font-weight: 500;
@@ -13,12 +13,18 @@
 
 @media (min-width: 456px) {
   .main__form-title {
-    margin: 0 auto;
+    margin: 0 auto 80px;
   }
 }
 
 @media (min-width: 768px) {
   .main__form-title {
-    text-align: left;
+    margin: 236px auto 96px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .main__form-title {
+    margin: 74px auto 123px;
   }
 }

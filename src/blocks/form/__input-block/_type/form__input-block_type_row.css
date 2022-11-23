@@ -1,3 +1,18 @@
 .form__input-block_type_row {
-  
+  justify-content: space-between;
+  width: calc(100% - 60px);
+  max-width: 410px;
+  margin: 0 30px;
+}
+
+.form__input-block_type_row:first-of-type {
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e8e8e8;
+  margin-bottom: 17px;
+}
+
+@media (min-width: 470px) {
+  .form__input-block_type_row {
+    margin: 0 auto;
+  }
 }

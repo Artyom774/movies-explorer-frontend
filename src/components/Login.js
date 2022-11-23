@@ -33,7 +33,7 @@ function Login() {
             <p className="form__sign form__sign_type_column">Пароль</p>
             <input type="password" id="password-input" name="email" value={password} onChange={handlePassword} required className="form__input form__input_type_column" placeholder="Пароль"></input>
           </div>
-          <p className="form__error">Что-то пошло не так...</p>
+          <p className="form__error display_none">Что-то пошло не так...</p>
           <button type="submit" className="form__submit form__submit_theme_blue">Войти</button>
           <div className="form__link-block">
             <p className="form__question">Ещё не зарегистрированы?</p>

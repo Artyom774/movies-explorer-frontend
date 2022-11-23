@@ -1,6 +1,5 @@
 .form__input-block_type_column {
   flex-direction: column;
-  align-items: center;
   width: calc(100% - 60px);
   max-width: 396px;
   margin: 0 30px 24px;
