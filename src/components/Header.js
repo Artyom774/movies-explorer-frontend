@@ -1,7 +1,11 @@
 import React from 'react';
 import logo from '../images/header__logo.svg';
 
-function Header() {
+function Header({setIsPopupOoen}) {
+  function openPopup() {
+    setIsPopupOoen(true);
+  }
+
   return (
     <header className="header header_theme_white">
       <a href="/" target="_blank"><img className="header__logo" src={logo} alt="лого" /></a>
@@ -13,6 +17,7 @@ function Header() {
           <div className="header__profile-link-icon" />
         </a>
       </div>
+      <button type="button" className="header__navigator-button" onClick={openPopup}></button>
     </header>
   );
 }

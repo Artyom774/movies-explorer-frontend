@@ -1,0 +1,21 @@
+.header__navigator-button {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  margin-left: auto;
+  background-color: rgba(0,0,0,0);
+  border: none;
+  background-image: url('../../../images/navigator-button.svg');
+  cursor: pointer;
+}
+
+.header__navigator-button:hover {
+  opacity: .5;
+  transition-duration: 1s;
+}
+
+@media (min-width: 1080px) {
+  .header__navigator-button {
+    display: none;
+  }
+}
