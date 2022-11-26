@@ -1,0 +1,24 @@
+.header__profile-link-icon {
+  display: none;
+  object-fit: contain;
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  margin-left: 13px;
+  background-image: url('../../../images/profile-link-icon.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 10px 11px;
+  background-color: #f4f4f4;
+}
+
+.header__profile-link-icon:hover {
+  opacity: .5;
+  transition-duration: 1s;
+}
+
+@media (min-width: 1080px) {
+  .header__profile-link-icon {
+    display: inline;
+  }
+}

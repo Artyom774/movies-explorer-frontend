@@ -1,0 +1,19 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  padding: 79px 10px 10px;
+  background-color: #f8f8f8;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .footer {
+    padding: 79px 30px 20px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .footer {
+    padding: 79px 70px 20px;
+  }
+}

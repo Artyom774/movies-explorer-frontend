@@ -1,0 +1,22 @@
+.promo {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 70px 10px 30px;
+  background-color: #dddee3;
+}
+
+@media (min-width: 768px) {
+  .promo {
+    padding: 140px 50px 76px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .promo {
+    padding: 75px 70px;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+}

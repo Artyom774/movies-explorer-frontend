@@ -1,0 +1,11 @@
+.popup__profile {
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  text-decoration: none;
+}
+
+.popup__profile:hover {
+  opacity: .5;
+  transition-duration: 1s;
+}

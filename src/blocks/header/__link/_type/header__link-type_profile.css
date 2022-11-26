@@ -1,0 +1,13 @@
+.header__link_type_profile {
+  display: none;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  margin-left: 50px;
+}
+
+@media (min-width: 1080px) {
+  .header__link_type_profile {
+    display: inline;
+  }
+}

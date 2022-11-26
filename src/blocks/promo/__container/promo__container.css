@@ -1,0 +1,11 @@
+.promo__container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+@media (min-width: 1280px) {
+  .promo__container {
+    width: 640px;
+  }
+}

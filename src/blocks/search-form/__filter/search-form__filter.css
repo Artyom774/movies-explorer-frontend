@@ -1,0 +1,12 @@
+.search-form__filter {
+  width: 36px;
+  height: 20px;
+  background-color: #fafafa;
+  background-image: url('../../../images/filter_disactivated.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: none;
+  box-sizing: border-box;
+  cursor: pointer;
+}

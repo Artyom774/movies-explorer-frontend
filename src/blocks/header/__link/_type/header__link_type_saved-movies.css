@@ -1,0 +1,12 @@
+.header__link_type_saved-movies {
+  display: none;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+@media (min-width: 1080px) {
+  .header__link_type_saved-movies {
+    display: inline;
+  }
+}

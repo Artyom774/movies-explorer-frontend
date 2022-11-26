@@ -1,0 +1,16 @@
+.about-project__time-blog {
+  display: flex;
+  margin-top: 4px;
+}
+
+@media (min-width: 768px) {
+  .about-project__time-blog {
+    margin-top: 93px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .about-project__time-blog {
+    margin-top: 110px;
+  }
+}

@@ -1,0 +1,11 @@
+.about-me__flex-container {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .about-me__flex-container {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+}
