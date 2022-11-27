@@ -1,7 +1,9 @@
 import React from 'react';
 import Header from './Header';
+import Navigator from './Navigator';
 
 function Profile(props) {
+  const [isPopupOpen, setIsPopupOoen] =React.useState(false);
   const [name, setName] = React.useState('');
   const [email, setEmail] = React.useState('');
 
@@ -19,7 +21,7 @@ function Profile(props) {
 
   return (
     <div className="page">
-      <Header />
+      <Header setIsPopupOoen={setIsPopupOoen} />
       <main className="main">
         <h1 className="main__form-title">{`Привет, ` + props.name + `!`}</h1>
         <form className="form" onSubmit={handleFormSubmit}>
@@ -35,6 +37,7 @@ function Profile(props) {
           <button type="button" className="form__sign-out">Выйти из аккаунта</button>  
         </form>
       </main>
+      <Navigator isOpen={isPopupOpen} setIsPopupOoen={setIsPopupOoen} page={'profile'} />
     </div>
   );
 }
