@@ -8,7 +8,7 @@ function Header({setIsPopupOoen}) {
 
   return (
     <header className="header header_theme_white">
-      <a href="/" target="_blank"><img className="header__logo" src={logo} alt="лого" /></a>
+      <a href="/"><img className="header__logo" src={logo} alt="лого" /></a>
       <div className="header__links">
         <a className="header__link header__link_type_movies" href="/movies">Фильмы</a>
         <a className="header__link header__link_type_saved-movies" href="/saved-movies">Сохранённые фильмы</a>
