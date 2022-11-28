@@ -1,5 +1,6 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
+import ProtectedRoute from './ProtectedRoute';
 import Main from './Main';
 import Movies from './Movies';
 import SavedMovies from './SavedMovies';
@@ -8,19 +9,25 @@ import Login from './Login';
 import Register from './Register';
 import NotFound from './NotFound';
 
-function App() {
+function App() {  
+  const [loggedIn, setLoggedIn] = React.useState(true);
+
   return (
     <div className="App">
       <Switch>
-        <Route exact path="/movies">
-          <Movies />
-        </Route>
-        <Route exact path="/saved-movies">
-          <SavedMovies />
-        </Route>
-        <Route exact path="/profile">
-          <Profile name={'Виталий'} />
-        </Route>
+        <ProtectedRoute
+          exact path="/movies"
+          loggedIn={loggedIn}
+          component={Movies} />
+        <ProtectedRoute
+          exact path="/saved-movies"
+          loggedIn={loggedIn}
+          component={SavedMovies} />
+        <ProtectedRoute
+          exact path="/profile"
+          loggedIn={loggedIn}
+          component={Profile}
+          name={'Виталий'} />
         <Route exact path="/signin">
           <Login />
         </Route>
@@ -38,4 +45,4 @@ function App() {
   );
 }
 
-export default App;
+export default withRouter(App);

@@ -1,0 +1,56 @@
+export const BASE_URL = 'https://api.your-mesto.nomoredomains.icu';
+
+function _checkResponse(res) {
+    if (res.ok) {
+      return res.json();
+    };
+    return Promise.reject(`Ошибка: ${res.status}`);
+  }
+
+export const register = (email, password, name) => {
+  return fetch(`${BASE_URL}/signup`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      email: email,
+      password: password,
+      name: name
+    })
+  })
+  .then(res => { return _checkResponse(res)})
+  .then((res) => {
+    return res;
+  })
+};
+
+export const authorization = (email, password) => {
+  return fetch(`${BASE_URL}/signin`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      email: email,
+      password: password
+    })
+  })
+  .then(res => { return _checkResponse(res)})
+  .then((res) => {
+    localStorage.setItem('token', res.token);
+    return res;
+  })
+};
+
+export const getContent = (token) => {
+  return fetch(`${BASE_URL}/users/me`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'authorization': `Bearer ${token}`,
+    }
+  })
+  .then(res => { return _checkResponse(res)})
+  .then(data => data)
+} 
