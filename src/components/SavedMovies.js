@@ -5,7 +5,7 @@ import MoviesCardList from './MoviesCardList';
 import Footer from './Footer';
 import Navigator from './Navigator';
 
-function SavedMovies() {
+function SavedMovies(props) {
   const [isPopupOpen, setIsPopupOoen] =React.useState(false);
 
   return (
@@ -13,7 +13,9 @@ function SavedMovies() {
       <Header setIsPopupOoen={setIsPopupOoen} />
       <main className="main">
         <SearchForm />
-        <MoviesCardList />
+        <MoviesCardList
+          moviesArray={props.myMovies}
+          pages={'saved-movies'} />
       </main>
       <Footer />
       <Navigator isOpen={isPopupOpen} setIsPopupOoen={setIsPopupOoen} page={'saved-movies'} />

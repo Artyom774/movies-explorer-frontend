@@ -11,17 +11,6 @@ class MainApi {
     return Promise.reject(`Ошибка: ${res.status}`);
   }
 
-  getInitialCards(token) {   // загрузка изначальных карточек
-    return fetch(`${this._baseUrl}/cards`, {
-      headers: {
-        'Content-Type': 'application/json',
-        'authorization': `Bearer ${token}`
-      },
-      credentials: "include"
-    })
-    .then(res => {return this._processTheResponse(res)})
-  }
-
   getUserInfo(token) {   // загрузка сведений о пользователе со сервера
     return fetch(`${this._baseUrl}/users/me`, {
       headers: {
@@ -34,10 +23,6 @@ class MainApi {
   }
 
   refreshUserInfo(data, token) {   // отправка обновлённых данных о пользователе
-    console.log('отправляем с фронта', JSON.stringify({
-      name: data.name,
-      about: data.job
-    }));
     return fetch(`${this._baseUrl}/users/me`, {
     method: 'PATCH',
     headers: {
@@ -46,14 +31,25 @@ class MainApi {
     },
     credentials: "include",
     body: JSON.stringify({
-      name: data.name,
-      about: data.job
+      email: data.email,
+      name: data.name
     })})
     .then(res => {return this._processTheResponse(res)})
   }
 
-  postNewCard(data, token) {   // загрузка новой карточки на сервер
-    return fetch(`${this._baseUrl}/cards`, {
+  getSavedMovies(token) {   // загрузка сохранённых фильмов
+    return fetch(`${this._baseUrl}/movies`, {
+      headers: {
+        'Content-Type': 'application/json',
+        'authorization': `Bearer ${token}`
+      },
+      credentials: "include"
+    })
+    .then(res => {return this._processTheResponse(res)})
+  }
+
+  savedNewMovie(data, token) {   // сохранение нового фильма
+    return fetch(`${this._baseUrl}/movies`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -61,28 +57,23 @@ class MainApi {
     },
     credentials: "include",
     body: JSON.stringify({
-      name: data.name,
-      link: data.link
+      country: data.country,
+      director: data.director,
+      duration: data.duration,
+      year: data.year,
+      description: data.description,
+      image: data.image,
+      trailerLink: data.trailerLink,
+      nameRU: data.nameRU,
+      nameEN: data.nameEN,
+      thumbnail: data.thumbnail,
+      movieId: data.movieId
     })})
     .then(res => {return this._processTheResponse(res)})
   }
 
-  refreshAvatar(data, token) {   // загрузка новой аватарки пользователя
-    return fetch(`${this._baseUrl}/users/me/avatar`, {
-    method: 'PATCH',
-    headers: {
-      'Content-Type': 'application/json',
-      'authorization': `Bearer ${token}`
-    },
-    credentials: "include",
-    body: JSON.stringify({
-      avatar: data.avatar
-    })})
-    .then(res => {return this._processTheResponse(res)})
-  }
-
-  deleteCard(cardId, token) {  // удалить карточку
-    return fetch(`${this._baseUrl}/cards/${cardId}`, {
+  deleteMovie(movieId, token) {  // удалить сохранённый фильм
+    return fetch(`${this._baseUrl}/cards/${movieId}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -91,34 +82,10 @@ class MainApi {
       credentials: "include"
     })
     .then(res => {return this._processTheResponse(res)})
-  }
-
-  putLike(cardId, token) {   // поставить лайк
-    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-        'authorization': `Bearer ${token}`
-      },
-      credentials: "include"
-    })
-    .then(res => {return this._processTheResponse(res)})
-  }
-
-  deleteLike(cardId, token) {  // убрать лайк
-    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-        'authorization': `Bearer ${token}`
-      },
-      credentials: "include"
-      })
-      .then(res => {return this._processTheResponse(res)})
   }
 }
 
-export const api = new MainApi({
+export const mainApi = new MainApi({
   baseUrl: 'https://api.your-mesto.nomoredomains.icu',
   headers: {
     'Content-Type': 'application/json'

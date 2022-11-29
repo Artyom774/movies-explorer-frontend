@@ -5,7 +5,7 @@ import MoviesCardList from './MoviesCardList';
 import Footer from './Footer';
 import Navigator from './Navigator';
 
-function Movies() {
+function Movies(props) {
   const [isPopupOpen, setIsPopupOoen] =React.useState(false);
 
   return (
@@ -13,7 +13,9 @@ function Movies() {
       <Header setIsPopupOoen={setIsPopupOoen} />
       <main className="main">
         <SearchForm />
-        <MoviesCardList page={'movies'} />
+        <MoviesCardList
+          page={'movies'}
+          moviesArray={props.allMovies} />
       </main>
       <Footer />
       <Navigator isOpen={isPopupOpen} setIsPopupOoen={setIsPopupOoen} page={'movies'} />
