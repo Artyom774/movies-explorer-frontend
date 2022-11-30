@@ -13,7 +13,7 @@ function SearchForm({searchMovies, searchFilter, setSearchFilter}) {
 
   function handleSearchSubmit(e) { // найти фильмы
     e.preventDefault();
-    searchMovies(search, searchFilter);
+    searchMovies(search);
   }
   
   return (

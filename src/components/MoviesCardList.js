@@ -17,7 +17,7 @@ function MoviesCardList(props) {
               isLiked={props.myMovies.some((myCard)=>{return myCard.movieId === card.id})}
               myCardId={props.myMovies.find((myCard)=> myCard.movieId === card.id)} />)) :
           props.moviesArray.map((card) => (
-            (!props.searchFilter || card.duration <= 40) &&
+            (props.title === '' || card.nameRU.includes(props.title)) && (!props.searchFilter || card.duration <= 40) &&
               <MoviesCard
                 page={props.page}
                 card={card}

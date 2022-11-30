@@ -12,7 +12,7 @@ function Movies(props) {
   const [title, setTitle] = React.useState('');
   const [searchFilter, setSearchFilter] = React.useState(true);
 
-  function searchMovies(word, searchFilter) {
+  function searchMovies(word) {
     moviesApi.getMovies()  // загрузка всех фильмов с сервиса
       .then((allMovies)=>{
         setTitle(word);
