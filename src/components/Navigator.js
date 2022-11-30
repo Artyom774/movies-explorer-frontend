@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 function Navigator({isOpen, setIsPopupOoen, page}) {
   function closePopup() {
@@ -10,14 +11,14 @@ function Navigator({isOpen, setIsPopupOoen, page}) {
       <div className="popup__container">
         <button type="button" className="popup__close" onClick={closePopup}></button>
         <div className="popup__links">
-          <a href="/" className="popup__link">Главная</a>
-          <a href="/movies" className={`popup__link ` + (page === "movies" ? `popup__link_underlined` : ``)}>Фильмы</a>
-          <a href="saved-movies" className={`popup__link ` + (page === "saved-movies" ? `popup__link_underlined` : ``)}>Сохранённые фильмы</a>
+          <Link to="/" className="popup__link">Главная</Link>
+          <Link to="/movies" className={`popup__link ` + (page === "movies" ? `popup__link_underlined` : ``)}>Фильмы</Link>
+          <Link to="saved-movies" className={`popup__link ` + (page === "saved-movies" ? `popup__link_underlined` : ``)}>Сохранённые фильмы</Link>
         </div>
-        <a className="popup__profile" href="/profile">
+        <Link className="popup__profile" to="/profile">
           <p className="popup__profile-text">Аккаунт</p>
           <div className="popup__profile-icon" />
-        </a>
+        </Link>
       </div>
     </div>
   );

@@ -1,9 +1,8 @@
 import React from 'react';
 import logo from '../images/header__logo.svg';
-import { useHistory } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 function Login({authorizateUser, isSuccess}) {
-  const history = useHistory();
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
 
@@ -18,14 +17,13 @@ function Login({authorizateUser, isSuccess}) {
   function handleFormSubmit(e) { // отправить форму
     e.preventDefault();
     authorizateUser(email, password);
-    history.push('/movies');
     setPassword('');
   }
 
   return (
     <div className="page">
       <header className="header header_type_form">
-        <a href="/" target="_blank"><img className="header__logo" src={logo} alt="лого" /></a>
+        <Link to="/"><img className="header__logo" src={logo} alt="лого" /></Link>
         <h1 className="header__title">Рады видеть!</h1>
       </header>
       <main className="main">
@@ -42,7 +40,7 @@ function Login({authorizateUser, isSuccess}) {
           <button type="submit" className="form__submit form__submit_theme_blue">Войти</button>
           <div className="form__link-block">
             <p className="form__question">Ещё не зарегистрированы?</p>
-            <a href="/signup" className="form__link">Регистрация</a>
+            <Link to="/signup" className="form__link">Регистрация</Link>
           </div>
         </form>
       </main>

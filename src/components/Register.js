@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from '../images/header__logo.svg';
+import { Link } from "react-router-dom";
 
 function Register() {
   const [name, setName] = React.useState('');
@@ -25,7 +26,7 @@ function Register() {
   return (
     <div className="page">
       <header className="header header_type_form">
-        <a href="/" target="_blank"><img className="header__logo" src={logo} alt="лого" /></a>
+        <Link to="/"><img className="header__logo" src={logo} alt="лого" /></Link>
         <h1 className="header__title">Добро пожаловать!</h1>
       </header>
       <main className="main">
@@ -46,7 +47,7 @@ function Register() {
           <button type="submit" className="form__submit form__submit_theme_blue">Зарегистрироваться</button>
           <div className="form__link-block">
             <p className="form__question">Уже зарегистрированы?</p>
-            <a href="/signin" className="form__link">Войти</a>
+            <Link to="/signin" className="form__link">Войти</Link>
           </div>
         </form>
       </main>

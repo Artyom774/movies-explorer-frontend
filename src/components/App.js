@@ -12,31 +12,33 @@ import { register, authorization, getContent } from '../Auth';
 import { mainApi } from '../utils/MainApi';
 
 function App(props) {
-  const [loggedIn, setLoggedIn] = React.useState(true);
+  const [loggedIn, setLoggedIn] = React.useState(false);
   const [email, setEmail] = React.useState('');
   const [name, setName] = React.useState('');
   const [isSuccess, setIsSuccess] = React.useState(true);
   const [myMovies, setMyMovies] = React.useState([]);
-
-  function tokenCheck(token) { //проверка токена
-    if (token) {
-      getContent(token).then((res) => {
-        if (res) {
-        };
-      })
-      .catch(err => console.log(err));
-    };
-  }
 
   function authorizateUser(email, password) { // вход на сайт
     authorization(email, password).then((res) => {
       setLoggedIn(true);
       setIsSuccess(true);
       props.history.push('/movies');
+      Promise.all([
+        mainApi.getUserInfo(localStorage.getItem('token')),  // запрос информации о профиле
+        mainApi.getSavedMovies(localStorage.getItem('token'))  // загрузка сохранённых фильмов
+      ])
+        .then(([info, loadingMovies])=>{
+          setEmail(info.email);
+          setName(info.name);
+          setMyMovies(loadingMovies);
+        })
+        .catch(err => console.log(err));
     })
     .catch(err => {
       setIsSuccess(false);
-      console.log(err)
+      setLoggedIn(false);
+      localStorage.removeItem('token');
+      console.log(err);
     });
   }
 
@@ -93,6 +95,7 @@ function App(props) {
         mainApi.getSavedMovies(token)  // загрузка сохранённых фильмов
       ])
         .then(([info, loadingMovies])=>{
+          setLoggedIn(true);
           setEmail(info.email);
           setName(info.name);
           setMyMovies(loadingMovies);
@@ -123,7 +126,9 @@ function App(props) {
           component={Profile}
           name={name}
           email={email}
-          updatehUserInfo={updatehUserInfo} />
+          updatehUserInfo={updatehUserInfo}
+          setLoggedIn={setLoggedIn}
+          setHistory={props.history.push} />
         <Route exact path="/signin">
           <Login
           authorizateUser={authorizateUser}

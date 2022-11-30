@@ -20,6 +20,12 @@ function Profile(props) {
     props.updatehUserInfo(inputName, inputEmail);
   }
 
+  function handleSignOut() {
+    props.setLoggedIn(false);
+    localStorage.removeItem('token');
+    props.setHistory('/');
+  }
+
   React.useEffect(()=>{
     setInputName(props.name);
     setInputEmail(props.email);
@@ -40,7 +46,7 @@ function Profile(props) {
             <input type="text" id="email-input" name="email" value={inputEmail} onChange={handleEmail} required className="form__input form__input_type_row" placeholder="E-mail"></input>
           </div>
           <button type="submit" className="form__submit form__submit_theme_white">Редактировать</button>
-          <button type="button" className="form__sign-out">Выйти из аккаунта</button>  
+          <button type="button" className="form__sign-out" onClick={handleSignOut}>Выйти из аккаунта</button>  
         </form>
       </main>
       <Navigator isOpen={isPopupOpen} setIsPopupOoen={setIsPopupOoen} page={'profile'} />
