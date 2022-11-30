@@ -5,7 +5,7 @@ import Navigator from './Navigator';
 function Profile(props) {
   const [isPopupOpen, setIsPopupOoen] =React.useState(false);
   const [inputName, setInputName] = React.useState('');
-  const [setEmail, setInputEmail] = React.useState('');
+  const [inputEmail, setInputEmail] = React.useState('');
 
   function handleName(e) { // отслеживать изменения в поле ввода
     setInputName(e.target.value);
@@ -17,7 +17,13 @@ function Profile(props) {
 
   function handleFormSubmit(e) { // отправить форму
     e.preventDefault();
+    props.updatehUserInfo(inputName, inputEmail);
   }
+
+  React.useEffect(()=>{
+    setInputName(props.name);
+    setInputEmail(props.email);
+  }, [props.name])
 
   return (
     <div className="page">
@@ -31,7 +37,7 @@ function Profile(props) {
           </div>
           <div className="form__input-block form__input-block_type_row">
             <p className="form__sign form__sign_type_row">E-mail</p>
-            <input type="text" id="email-input" name="email" value={setEmail} onChange={handleEmail} required className="form__input form__input_type_row" placeholder="E-mail"></input>
+            <input type="text" id="email-input" name="email" value={inputEmail} onChange={handleEmail} required className="form__input form__input_type_row" placeholder="E-mail"></input>
           </div>
           <button type="submit" className="form__submit form__submit_theme_white">Редактировать</button>
           <button type="button" className="form__sign-out">Выйти из аккаунта</button>  

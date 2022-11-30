@@ -9,3 +9,8 @@
   border: none;
   cursor: pointer;
 }
+
+.movies-card__delete:hover {
+  background-size: 14px;
+  transition-duration: 1s;
+}

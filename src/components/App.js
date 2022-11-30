@@ -54,6 +54,39 @@ function App(props) {
     .catch(err => console.log(err));
   }
 
+  function updatehUserInfo(name, email) { // обновление информации о пользователе
+    const token = localStorage.getItem('token');
+    const data = {name: name, email: email};
+    if (token) {
+      mainApi.refreshUserInfo(data, token)
+        .then((res) => {
+          setName(res.name);
+          setEmail(res.email);
+        })
+        .catch(err => console.log(err));
+    }
+  }
+
+  function handleSavedMovie(data) {  // создать новую карточку
+    const token = localStorage.getItem('token');
+    mainApi
+      .savedNewMovie(data, token)
+      .then((newCard) => {
+        setMyMovies([newCard, ...myMovies]);
+      })
+      .catch(err => console.log(err));
+  }
+  
+  function handleDeleteSavedMovie(card) {
+    const token = localStorage.getItem('token');
+    mainApi
+      .deleteMovie(card._id, token)
+      .then((newCard) => {
+        setMyMovies((state) => state.filter((c) => c._id !== card._id));
+      })
+      .catch(err => console.log(err));
+  }
+
   React.useEffect(()=>{ // запрос информации при входе на сайт
     const token = localStorage.getItem('token');
     if (token) {
@@ -81,18 +114,21 @@ function App(props) {
           exact path="/movies"
           loggedIn={loggedIn}
           component={Movies}
-          allMovies={allMovies} />
+          allMovies={allMovies}
+          onSavedMovie={handleSavedMovie} />
         <ProtectedRoute
           exact path="/saved-movies"
           loggedIn={loggedIn}
           component={SavedMovies}
-          myMovies={myMovies} />
+          myMovies={myMovies}
+          onDeleteMovie={handleDeleteSavedMovie} />
         <ProtectedRoute
           exact path="/profile"
           loggedIn={loggedIn}
           component={Profile}
           name={name}
-          email={email} />
+          email={email}
+          updatehUserInfo={updatehUserInfo} />
         <Route exact path="/signin">
           <Login
           authorizateUser={authorizateUser}

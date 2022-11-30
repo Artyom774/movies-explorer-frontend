@@ -15,7 +15,8 @@ function SavedMovies(props) {
         <SearchForm />
         <MoviesCardList
           moviesArray={props.myMovies}
-          pages={'saved-movies'} />
+          pages={'saved-movies'}
+          onDeleteMovie={props.onDeleteMovie} />
       </main>
       <Footer />
       <Navigator isOpen={isPopupOpen} setIsPopupOoen={setIsPopupOoen} page={'saved-movies'} />

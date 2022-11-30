@@ -9,7 +9,9 @@ function MoviesCardList(props) {
           <MoviesCard
             page={props.page}
             card={card}
-            key={props.page === "movies" ? card.id : card._id} />))}
+            key={props.page === "movies" ? card.id : card._id}
+            onDeleteMovie={props.onDeleteMovie}
+            onSavedMovie={props.onSavedMovie} />))}
       </div>
       <button className="movies-card-list__button">{props.page === "movies" ? "Ещё" : ""}</button> 
     </section>

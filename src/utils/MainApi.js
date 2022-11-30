@@ -62,18 +62,18 @@ class MainApi {
       duration: data.duration,
       year: data.year,
       description: data.description,
-      image: data.image,
+      image: `https://api.nomoreparties.co/${data.image.url}`,
       trailerLink: data.trailerLink,
       nameRU: data.nameRU,
       nameEN: data.nameEN,
-      thumbnail: data.thumbnail,
-      movieId: data.movieId
+      thumbnail: `https://api.nomoreparties.co/${data.image.formats.thumbnail.url}`,
+      movieId: data.id
     })})
     .then(res => {return this._processTheResponse(res)})
   }
 
   deleteMovie(movieId, token) {  // удалить сохранённый фильм
-    return fetch(`${this._baseUrl}/cards/${movieId}`, {
+    return fetch(`${this._baseUrl}/movies/${movieId}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
