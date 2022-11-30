@@ -7,16 +7,20 @@ import Navigator from './Navigator';
 
 function SavedMovies(props) {
   const [isPopupOpen, setIsPopupOoen] =React.useState(false);
+  const [searchFilter, setSearchFilter] = React.useState(true);
 
   return (
     <div className="page">
       <Header setIsPopupOoen={setIsPopupOoen} />
       <main className="main">
-        <SearchForm />
+        <SearchForm
+          searchFilter={searchFilter}
+          setSearchFilter={setSearchFilter} />
         <MoviesCardList
           moviesArray={props.myMovies}
           pages={'saved-movies'}
-          onDeleteMovie={props.onDeleteMovie} />
+          onDeleteMovie={props.onDeleteMovie}
+          searchFilter={searchFilter} />
       </main>
       <Footer />
       <Navigator isOpen={isPopupOpen} setIsPopupOoen={setIsPopupOoen} page={'saved-movies'} />

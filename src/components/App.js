@@ -75,12 +75,12 @@ function App(props) {
       .catch(err => console.log(err));
   }
   
-  function handleDeleteSavedMovie(card) {
+  function handleDeleteSavedMovie(cardId) {
     const token = localStorage.getItem('token');
     mainApi
-      .deleteMovie(card._id, token)
+      .deleteMovie(cardId, token)
       .then((newCard) => {
-        setMyMovies((state) => state.filter((c) => c._id !== card._id));
+        setMyMovies((state) => state.filter((c) => c._id !== cardId));
       })
       .catch(err => console.log(err));
   }
@@ -109,6 +109,7 @@ function App(props) {
           loggedIn={loggedIn}
           component={Movies}
           onSavedMovie={handleSavedMovie}
+          onDeleteMovie={handleDeleteSavedMovie}
           myMovies={myMovies} />
         <ProtectedRoute
           exact path="/saved-movies"

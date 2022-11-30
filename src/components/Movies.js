@@ -10,6 +10,7 @@ function Movies(props) {
   const [isPopupOpen, setIsPopupOoen] =React.useState(false);
   const [allMovies, setAllMovies] = React.useState([]);
   const [title, setTitle] = React.useState('');
+  const [searchFilter, setSearchFilter] = React.useState(true);
 
   function searchMovies(word, searchFilter) {
     moviesApi.getMovies()  // загрузка всех фильмов с сервиса
@@ -25,13 +26,17 @@ function Movies(props) {
       <Header setIsPopupOoen={setIsPopupOoen} />
       <main className="main">
         <SearchForm
-          searchMovies={searchMovies} />
+          searchMovies={searchMovies}
+          searchFilter={searchFilter}
+          setSearchFilter={setSearchFilter} />
         <MoviesCardList
           page={'movies'}
           moviesArray={allMovies}
           onSavedMovie={props.onSavedMovie}
           title={title}
-          myMovies={props.myMovies} />
+          myMovies={props.myMovies}
+          onDeleteMovie={props.onDeleteMovie}
+          searchFilter={searchFilter} />
       </main>
       <Footer />
       <Navigator isOpen={isPopupOpen} setIsPopupOoen={setIsPopupOoen} page={'movies'} />

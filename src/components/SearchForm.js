@@ -1,8 +1,7 @@
 import React from 'react';
 
-function SearchForm({searchMovies}) {
+function SearchForm({searchMovies, searchFilter, setSearchFilter}) {
   const [search, setSearch] = React.useState('');
-  const [searchFilter, setSearchFilter] = React.useState(true);
 
   function handleSearch(e) { // отслеживать изменения в поле ввода
     setSearch(e.target.value);
