@@ -12,7 +12,7 @@ import { register, authorization, getContent } from '../Auth';
 import { mainApi } from '../utils/MainApi';
 
 function App(props) {
-  const [loggedIn, setLoggedIn] = React.useState(true);  
+  const [loggedIn, setLoggedIn] = React.useState(true);
   const [email, setEmail] = React.useState('');
   const [name, setName] = React.useState('');
   const [isSuccess, setIsSuccess] = React.useState(true);
@@ -133,7 +133,8 @@ function App(props) {
           <Register />
         </Route>
         <Route exact path="/">
-          <Main />
+          <Main
+            loggedIn={loggedIn} />
         </Route>
         <Route path="/">
           <NotFound />
