@@ -5,13 +5,23 @@ function MoviesCardList(props) {
   return (
     <section className="movies-card-list">
       <div className="movies-card-list__grid">
-        {props.moviesArray.map((card) => (
-          <MoviesCard
-            page={props.page}
-            card={card}
-            key={props.page === "movies" ? card.id : card._id}
-            onDeleteMovie={props.onDeleteMovie}
-            onSavedMovie={props.onSavedMovie} />))}
+        {(props.page === 'movies' ? 
+          props.moviesArray.map((card) => (
+            card.nameRU.includes(props.title) && 
+            <MoviesCard
+              page={props.page}
+              card={card}
+              key={props.page === "movies" ? card.id : card._id}
+              onDeleteMovie={props.onDeleteMovie}
+              onSavedMovie={props.onSavedMovie}
+              isLiked={props.myMovies.some((myCard)=>{return myCard.movieId === card.id})} />)) :
+          props.moviesArray.map((card) => (
+            <MoviesCard
+              page={props.page}
+              card={card}
+              key={props.page === "movies" ? card.id : card._id}
+              onDeleteMovie={props.onDeleteMovie}
+              onSavedMovie={props.onSavedMovie} />)))}
       </div>
       <button className="movies-card-list__button">{props.page === "movies" ? "Ещё" : ""}</button> 
     </section>

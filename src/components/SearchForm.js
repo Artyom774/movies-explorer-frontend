@@ -1,6 +1,6 @@
 import React from 'react';
 
-function SearchForm() {
+function SearchForm({searchMovies}) {
   const [search, setSearch] = React.useState('');
   const [searchFilter, setSearchFilter] = React.useState(true);
 
@@ -14,6 +14,7 @@ function SearchForm() {
 
   function handleSearchSubmit(e) { // найти фильмы
     e.preventDefault();
+    searchMovies(search, searchFilter);
   }
   
   return (

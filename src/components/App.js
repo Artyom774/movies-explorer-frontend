@@ -10,7 +10,6 @@ import Register from './Register';
 import NotFound from './NotFound';
 import { register, authorization, getContent } from '../Auth';
 import { mainApi } from '../utils/MainApi';
-import { moviesApi } from '../utils/MoviesApi';
 
 function App(props) {
   const [loggedIn, setLoggedIn] = React.useState(true);  
@@ -18,7 +17,6 @@ function App(props) {
   const [name, setName] = React.useState('');
   const [isSuccess, setIsSuccess] = React.useState(true);
   const [myMovies, setMyMovies] = React.useState([]);
-  const [allMovies, setAllMovies] = React.useState([]);
 
   function tokenCheck(token) { //проверка токена
     if (token) {
@@ -101,10 +99,6 @@ function App(props) {
         })
         .catch(err => console.log(err));
     };
-    moviesApi.getMovies()  // загрузка всех фильмов с сервиса
-    .then((allMovies)=>{
-      setAllMovies(allMovies);
-    }).catch(err => console.log(err));
   }, [])
 
   return (
@@ -114,8 +108,8 @@ function App(props) {
           exact path="/movies"
           loggedIn={loggedIn}
           component={Movies}
-          allMovies={allMovies}
-          onSavedMovie={handleSavedMovie} />
+          onSavedMovie={handleSavedMovie}
+          myMovies={myMovies} />
         <ProtectedRoute
           exact path="/saved-movies"
           loggedIn={loggedIn}
