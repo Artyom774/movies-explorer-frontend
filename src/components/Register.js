@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../images/header__logo.svg';
 import { Link } from "react-router-dom";
 
-function Register() {
+function Register({registrationUser, isSuccess}) {
   const [name, setName] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
@@ -21,6 +21,8 @@ function Register() {
 
   function handleFormSubmit(e) { // отправить форму
     e.preventDefault();
+    registrationUser(email, password, name);
+    setPassword('');
   }
 
   return (
@@ -43,7 +45,7 @@ function Register() {
             <p className="form__sign form__sign_type_column">Пароль</p>
             <input type="password" id="password-input" name="email" value={password} onChange={handlePassword} required className="form__input form__input_type_column" placeholder="Пароль"></input>
           </div>
-          <p className="form__error display_none">Что-то пошло не так...</p>
+          <p className={`form__error ` + (isSuccess ? `display_none` : ``)}>Что-то пошло не так...</p>
           <button type="submit" className="form__submit form__submit_theme_blue">Зарегистрироваться</button>
           <div className="form__link-block">
             <p className="form__question">Уже зарегистрированы?</p>

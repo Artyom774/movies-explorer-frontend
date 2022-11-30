@@ -7,7 +7,7 @@ function _checkResponse(res) {
     return Promise.reject(`Ошибка: ${res.status}`);
   }
 
-export const register = (email, password, name) => {
+export const registerUser = (email, password, name) => {
   return fetch(`${BASE_URL}/signup`, {
     method: 'POST',
     headers: {

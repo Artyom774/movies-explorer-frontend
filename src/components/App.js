@@ -8,7 +8,7 @@ import Profile from './Profile';
 import Login from './Login';
 import Register from './Register';
 import NotFound from './NotFound';
-import { register, authorization, getContent } from '../Auth';
+import { registerUser, authorization } from '../Auth';
 import { mainApi } from '../utils/MainApi';
 
 function App(props) {
@@ -19,39 +19,40 @@ function App(props) {
   const [myMovies, setMyMovies] = React.useState([]);
 
   function authorizateUser(email, password) { // вход на сайт
-    authorization(email, password).then((res) => {
-      setLoggedIn(true);
-      setIsSuccess(true);
-      props.history.push('/movies');
-      Promise.all([
-        mainApi.getUserInfo(localStorage.getItem('token')),  // запрос информации о профиле
-        mainApi.getSavedMovies(localStorage.getItem('token'))  // загрузка сохранённых фильмов
-      ])
-        .then(([info, loadingMovies])=>{
-          setEmail(info.email);
-          setName(info.name);
-          setMyMovies(loadingMovies);
-        })
-        .catch(err => console.log(err));
-    })
-    .catch(err => {
-      setIsSuccess(false);
-      setLoggedIn(false);
-      localStorage.removeItem('token');
-      console.log(err);
-    });
+    authorization(email, password)
+      .then((res) => {
+        setLoggedIn(true);
+        setIsSuccess(true);
+        props.history.push('/movies');
+        Promise.all([
+          mainApi.getUserInfo(localStorage.getItem('token')),  // запрос информации о профиле
+          mainApi.getSavedMovies(localStorage.getItem('token'))  // загрузка сохранённых фильмов
+        ])
+          .then(([info, loadingMovies])=>{
+            setEmail(info.email);
+            setName(info.name);
+            setMyMovies(loadingMovies);
+          })
+          .catch(err => console.log(err));
+      })
+      .catch(err => {
+        setIsSuccess(false);
+        setLoggedIn(false);
+        localStorage.removeItem('token');
+        console.log(err);
+      });
   }
 
-  function registrationUser(password, email) { // регистрация нового пользователя
-    register(password, email).then((res) => {
-      if (res) {
+  function registrationUser(email, password, name) { // регистрация нового пользователя
+    registerUser(email, password, name)
+      .then((res) => {
         props.history.push('/signin');
         setIsSuccess(true);
-      } else {
+      })
+      .catch(err => {
         setIsSuccess(false);
-      }
-    })
-    .catch(err => console.log(err));
+        console.log(err)
+      });
   }
 
   function updatehUserInfo(name, email) { // обновление информации о пользователе
@@ -135,7 +136,9 @@ function App(props) {
           isSuccess={isSuccess} />
         </Route>
         <Route exact path="/signup">
-          <Register />
+          <Register
+          registrationUser={registrationUser}
+          isSuccess={isSuccess} />
         </Route>
         <Route exact path="/">
           <Main
