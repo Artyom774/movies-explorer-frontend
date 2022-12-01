@@ -7,12 +7,19 @@ import Navigator from './Navigator';
 
 function SavedMovies(props) {
   const [isPopupOpen, setIsPopupOoen] =React.useState(false);
-  const [searchFilter, setSearchFilter] = React.useState(true);  
+  const [searchFilter, setSearchFilter] = React.useState(false);  
   const [title, setTitle] = React.useState('');
 
   function searchMovies(word) {
     setTitle(word);
   }
+
+  React.useState(()=>{
+    const savedFilter = localStorage.getItem('searchingSavedFilter');
+    if (savedFilter === 'true') {
+      setSearchFilter(true);
+    }
+  }, [])
 
   return (
     <div className="page">
@@ -21,10 +28,11 @@ function SavedMovies(props) {
         <SearchForm
           searchMovies={searchMovies}
           searchFilter={searchFilter}
-          setSearchFilter={setSearchFilter} />
+          setSearchFilter={setSearchFilter}
+          page={'saved-movies'} />
         <MoviesCardList
           moviesArray={props.myMovies}
-          pages={'saved-movies'}
+          page={'saved-movies'}
           onDeleteMovie={props.onDeleteMovie}
           searchFilter={searchFilter}
           title={title} />

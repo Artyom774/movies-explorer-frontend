@@ -10,7 +10,7 @@ function Movies(props) {
   const [isPopupOpen, setIsPopupOoen] =React.useState(false);
   const [allMovies, setAllMovies] = React.useState([]);
   const [title, setTitle] = React.useState('');
-  const [searchFilter, setSearchFilter] = React.useState(true);
+  const [searchFilter, setSearchFilter] = React.useState(false);
 
   function searchMovies(word) {
     moviesApi.getMovies()  // загрузка всех фильмов с сервиса
@@ -21,6 +21,13 @@ function Movies(props) {
       .catch(err => console.log(err));
   }
 
+  React.useState(()=>{
+    const savedFilter = localStorage.getItem('searchingFilter');
+    if (savedFilter === 'true') {
+      setSearchFilter(true);
+    }
+  }, [])
+
   return (
     <div className="page">
       <Header setIsPopupOoen={setIsPopupOoen} />
@@ -28,7 +35,8 @@ function Movies(props) {
         <SearchForm
           searchMovies={searchMovies}
           searchFilter={searchFilter}
-          setSearchFilter={setSearchFilter} />
+          setSearchFilter={setSearchFilter}
+          page={'movies'} />
         <MoviesCardList
           page={'movies'}
           moviesArray={allMovies}
