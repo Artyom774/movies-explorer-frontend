@@ -11,8 +11,10 @@ function Movies(props) {
   const [allMovies, setAllMovies] = React.useState([]);
   const [title, setTitle] = React.useState('');
   const [searchFilter, setSearchFilter] = React.useState(false);
+  const [addCardsNumber, setAddCardsNumber] = React.useState(0);
 
   function searchMovies(word) {
+    setAddCardsNumber(0);
     moviesApi.getMovies()  // загрузка всех фильмов с сервиса
       .then((allMovies)=>{
         setTitle(word);
@@ -44,7 +46,9 @@ function Movies(props) {
           title={title}
           myMovies={props.myMovies}
           onDeleteMovie={props.onDeleteMovie}
-          searchFilter={searchFilter} />
+          searchFilter={searchFilter}
+          addCardsNumber={addCardsNumber}
+          setAddCardsNumber={setAddCardsNumber} />
       </main>
       <Footer />
       <Navigator isOpen={isPopupOpen} setIsPopupOoen={setIsPopupOoen} page={'movies'} />

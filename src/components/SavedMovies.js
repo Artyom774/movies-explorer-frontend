@@ -9,8 +9,10 @@ function SavedMovies(props) {
   const [isPopupOpen, setIsPopupOoen] =React.useState(false);
   const [searchFilter, setSearchFilter] = React.useState(false);  
   const [title, setTitle] = React.useState('');
+  const [addCardsNumber, setAddCardsNumber] = React.useState(0);
 
   function searchMovies(word) {
+    setAddCardsNumber(0);
     setTitle(word);
   }
 
@@ -35,7 +37,9 @@ function SavedMovies(props) {
           page={'saved-movies'}
           onDeleteMovie={props.onDeleteMovie}
           searchFilter={searchFilter}
-          title={title} />
+          title={title}
+          addCardsNumber={addCardsNumber}
+          setAddCardsNumber={setAddCardsNumber} />
       </main>
       <Footer />
       <Navigator isOpen={isPopupOpen} setIsPopupOoen={setIsPopupOoen} page={'saved-movies'} />
