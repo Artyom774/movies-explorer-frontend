@@ -97,8 +97,10 @@
   @import url('./blocks/form/__submit/form__submit.css');
     @import url('./blocks/form/__submit/_theme/form__submit_theme_blue.css');
     @import url('./blocks/form/__submit/_theme/form__submit_theme_white.css');
+    @import url('./blocks/form/__submit/_disabled/form__submit_disabled.css');
   @import url('./blocks/form/__link-block/form__link-block.css');
   @import url('./blocks/form/__question/form__question.css');
+  @import url('./blocks/form/__link/form__link.css');
   @import url('./blocks/form/__sign-out/form__sign-out.css');
 @import url('./blocks/not-found/not-found.css');
   @import url('./blocks/not-found/__title/not-found__title.css');
@@ -117,3 +119,4 @@
 
 @import url('./blocks/display/display_none.css');
 @import url('./blocks/display/display_inline.css');
+@import url('./blocks/color/color_red.css');
