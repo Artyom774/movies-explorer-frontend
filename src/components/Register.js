@@ -9,9 +9,9 @@ function Register({registrationUser, isSuccess}) {
   const [nameDirty, setNameDirty] = React.useState(false)
   const [emailDirty, setEmailDirty] = React.useState(false);
   const [passwordDirty, setPasswordDirty] = React.useState(false);
-  const [nameError, setNameError] = React.useState(false);
-  const [emailError, setEmailError] = React.useState(false);
-  const [passwordError, setPasswordError] = React.useState(false);
+  const [nameError, setNameError] = React.useState(true);
+  const [emailError, setEmailError] = React.useState(true);
+  const [passwordError, setPasswordError] = React.useState(true);
   const [formValid, setFormValid] = React.useState(false);
 
   function blurHandler(e) {

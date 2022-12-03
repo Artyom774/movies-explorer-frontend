@@ -5,7 +5,7 @@ import MoviesCardList from './MoviesCardList';
 import Footer from './Footer';
 import Navigator from './Navigator';
 
-function SavedMovies(props) {
+function SavedMovies({loggedIn, myMovies, onDeleteMovie}) {
   const [isPopupOpen, setIsPopupOoen] =React.useState(false);
   const [searchFilter, setSearchFilter] = React.useState(false);  
   const [title, setTitle] = React.useState('');
@@ -33,9 +33,9 @@ function SavedMovies(props) {
           setSearchFilter={setSearchFilter}
           page={'saved-movies'} />
         <MoviesCardList
-          moviesArray={props.myMovies}
+          moviesArray={myMovies}
           page={'saved-movies'}
-          onDeleteMovie={props.onDeleteMovie}
+          onDeleteMovie={onDeleteMovie}
           searchFilter={searchFilter}
           title={title}
           addCardsNumber={addCardsNumber}

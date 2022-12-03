@@ -2,9 +2,16 @@ import React from 'react';
 
 function SearchForm({searchMovies, searchFilter, setSearchFilter, page}) {
   const [search, setSearch] = React.useState('');
+  const [searchError, setSearchError] = React.useState(true);
+  const [formValid, setFormValid] = React.useState(false);
 
   function handleSearch(e) { // отслеживать изменения в поле ввода
     setSearch(e.target.value);
+    if (e.target.value.length > 0) {
+      setSearchError(false);
+    } else {
+      setSearchError(true);
+    };
   }
 
   function handleFilterClick() { // переключить фильтр поиска
@@ -28,26 +35,43 @@ function SearchForm({searchMovies, searchFilter, setSearchFilter, page}) {
       const savedText = localStorage.getItem('searchingText');
       if (savedText) {
         setSearch(savedText);
-        searchMovies(savedText);
       }
     } else {
       const savedText = localStorage.getItem('searchingSavedText');
+      console.log(savedText);
       if (savedText) {
         setSearch(savedText);
+        searchMovies(savedText);
       }
     };
   }, [])
+
+  React.useEffect(() => {
+    if (searchError) {
+      setFormValid(false);
+    } else {
+      setFormValid(true);
+    };
+  }, [searchError])
   
   return (
     <section className="search-form-section">
-      <form className="search-form" onSubmit={handleSearchSubmit}>
+      <form className="search-form" onSubmit={handleSearchSubmit} noValidate>
         <div className="search-form__input-block">
           <input type="text" id="film-input" name="search" value={search} onChange={handleSearch} required className="search-form__input" placeholder="Фильм"></input>
-          <button type="submit" className="search-form__submit">Найти</button>
+          <button
+            disabled={!formValid}
+            type="submit"
+            className={`search-form__submit ` + (!formValid ? `search-form__submit_disabled` : ``)}>
+              Найти
+          </button>
         </div>
         <div className="search-form__flex-block">
           <p className="search-form__text">Короткометражки</p>
-          <button type="button" className={`search-form__filter ` + (searchFilter ? `search-form__filter_activated` : ``)} onClick={handleFilterClick}></button>
+          <button
+            type="button"
+            className={`search-form__filter ` + (searchFilter ? `search-form__filter_activated` : ``)}
+            onClick={handleFilterClick}></button>
         </div>
       </form>
     </section>
