@@ -6,20 +6,35 @@ import { CurrentUserContext } from '../contexts/CurrentUserContext';
 function Profile({ updatehUserInfo, setLoggedIn, setHistory }) {
   const currentUser = React.useContext(CurrentUserContext);
   const [isPopupOpen, setIsPopupOoen] =React.useState(false);
-  const [inputName, setInputName] = React.useState('');
-  const [inputEmail, setInputEmail] = React.useState('');
+  const [name, setName] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const [nameError, setNameError] = React.useState(false);
+  const [emailError, setEmailError] = React.useState(false);
+  const [formValid, setFormValid] = React.useState(false);
 
   function handleName(e) { // отслеживать изменения в поле ввода
-    setInputName(e.target.value);
+    setName(e.target.value);
+    const nameRegex = /^[А-ЯЁA-Z-\s]{2,30}$/umi;
+    if (!nameRegex.test(String(e.target.value))) {
+      setNameError(true);
+    } else {
+      setNameError(false);
+    };
   }
 
   function handleEmail(e) { // отслеживать изменения в поле ввода
-    setInputEmail(e.target.value);
+    setEmail(e.target.value);
+    const emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    if (!emailRegex.test(String(e.target.value).toLowerCase())) {
+      setEmailError(true);
+    } else {
+      setEmailError(false);
+    };
   }
 
   function handleFormSubmit(e) { // отправить форму
     e.preventDefault();
-    updatehUserInfo(inputName, inputEmail);
+    updatehUserInfo(name, email);
   }
 
   function handleSignOut() {
@@ -30,26 +45,52 @@ function Profile({ updatehUserInfo, setLoggedIn, setHistory }) {
     setHistory('/');
   }
 
+  React.useEffect(() => {
+    if ((nameError || emailError) || (name === currentUser.name && email === currentUser.email)) {
+      setFormValid(false);
+    } else {
+      setFormValid(true);
+    };
+  }, [name, email, nameError, emailError])
+
   React.useEffect(()=>{
-    setInputName(currentUser.name);
-    setInputEmail(currentUser.email);
+    setName(currentUser.name);
+    setEmail(currentUser.email);
   }, [currentUser])
+
+  React.useEffect(() => {
+    setFormValid(false);
+  }, [])
 
   return (
     <div className="page">
       <Header setIsPopupOoen={setIsPopupOoen} />
       <main className="main">
         <h1 className="main__form-title">{`Привет, ` + currentUser.name + `!`}</h1>
-        <form className="form" onSubmit={handleFormSubmit}>
+        <form className="form" onSubmit={handleFormSubmit} noValidate>
           <div className="form__input-block form__input-block_type_row">
             <p className="form__sign form__sign_type_row">Имя</p>
-            <input type="text" id="name-input" name="name" value={inputName} onChange={handleName} required className="form__input form__input_type_row" placeholder="Имя"></input>
+            <input
+              type="text" id="name-input" name="name" value={name}
+              onChange={handleName}
+              className={`form__input form__input_type_row ` + (nameError ? `color_red` : ``)}
+              placeholder="Имя">
+            </input>
           </div>
           <div className="form__input-block form__input-block_type_row">
             <p className="form__sign form__sign_type_row">E-mail</p>
-            <input type="text" id="email-input" name="email" value={inputEmail} onChange={handleEmail} required className="form__input form__input_type_row" placeholder="E-mail"></input>
+            <input
+              type="text" id="email-input" name="email" value={email}
+              onChange={handleEmail}
+              className={`form__input form__input_type_row ` + (emailError ? `color_red` : ``)}
+              placeholder="E-mail"></input>
           </div>
-          <button type="submit" className="form__submit form__submit_theme_white">Редактировать</button>
+          <button
+            disabled={!formValid}
+            type="submit"
+            className={`form__submit form__submit_theme_white ` + (!formValid ? `color_gray` : ``)}>
+              Редактировать
+          </button>
           <button type="button" className="form__sign-out" onClick={handleSignOut}>Выйти из аккаунта</button>  
         </form>
       </main>

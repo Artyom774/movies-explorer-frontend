@@ -6,7 +6,7 @@ function Register({ registrationUser, isSuccess }) {
   const [name, setName] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
-  const [nameDirty, setNameDirty] = React.useState(false)
+  const [nameDirty, setNameDirty] = React.useState(false);
   const [emailDirty, setEmailDirty] = React.useState(false);
   const [passwordDirty, setPasswordDirty] = React.useState(false);
   const [nameError, setNameError] = React.useState(true);
