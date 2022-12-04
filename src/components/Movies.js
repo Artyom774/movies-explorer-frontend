@@ -15,11 +15,18 @@ function Movies({ onSavedMovie, onDeleteMovie, allMoviesError, setAllMoviesError
 
   function searchMovies(word) {
     setAddCardsNumber(0);
+    setTitle(word);
+  }
+
+  React.useState(()=>{
+    const savedFilter = localStorage.getItem('searchingFilter');
+    if (savedFilter === 'true') {
+      setSearchFilter(true);
+    };
     setShowPreloader(true);
     moviesApi.getMovies()  // загрузка всех фильмов с сервиса
       .then((allMovies)=>{
         setAllMoviesError(false);
-        setTitle(word);
         setAllMovies(allMovies);
       })
       .catch((err) => {
@@ -27,13 +34,6 @@ function Movies({ onSavedMovie, onDeleteMovie, allMoviesError, setAllMoviesError
         console.log(err);
       })
       .finally(() => setShowPreloader(false));
-  }
-
-  React.useState(()=>{
-    const savedFilter = localStorage.getItem('searchingFilter');
-    if (savedFilter === 'true') {
-      setSearchFilter(true);
-    }
   }, [])
 
   return (

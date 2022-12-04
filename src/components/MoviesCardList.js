@@ -58,7 +58,7 @@ function MoviesCardList({ page, moviesArray, title, searchFilter, setAddCardsNum
     const slicingArray = newArray.slice(0, cardsNumber + addCardsNumber);
     setShowedAddButton(newArray.length > slicingArray.length);
     setRenderingCards([...slicingArray]);
-  }, [myMovies, moviesArray, searchFilter, addCardsNumber, cardsNumber])
+  }, [myMovies, moviesArray, searchFilter, addCardsNumber, cardsNumber, title])
 
   return (
     <section className="movies-card-list">
