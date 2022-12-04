@@ -82,7 +82,11 @@ function MoviesCardList({ page, moviesArray, title, searchFilter, setAddCardsNum
                 onDeleteMovie={onDeleteMovie}
                 onSavedMovie={onSavedMovie} />)))}
       </div>
-      { showPreloader && <Preloader />}
+      {showPreloader && <Preloader />}
+      <p
+        className={`movies-card-list__text ` + (renderingCards.length ? `display_none` : ``)}>
+          Ничего не найдено.
+      </p>
       <p
         className={`movies-card-list__text ` + (moviesError ? `` : `display_none`)}>
           Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.
