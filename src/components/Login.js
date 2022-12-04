@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../images/header__logo.svg';
 import { Link } from "react-router-dom";
 
-function Login({authorizateUser, isSuccess}) {
+function Login({ authorizateUser, isSuccess }) {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [emailDirty, setEmailDirty] = React.useState(false);

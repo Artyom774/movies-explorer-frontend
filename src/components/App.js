@@ -113,13 +113,11 @@ function App(props) {
               loggedIn={loggedIn}
               component={Movies}
               onSavedMovie={handleSavedMovie}
-              onDeleteMovie={handleDeleteSavedMovie}
-              myMovies={myMovies} />
+              onDeleteMovie={handleDeleteSavedMovie} />
             <ProtectedRoute
               exact path="/saved-movies"
               loggedIn={loggedIn}
               component={SavedMovies}
-              myMovies={myMovies}
               onDeleteMovie={handleDeleteSavedMovie} />
             <ProtectedRoute
               exact path="/profile"

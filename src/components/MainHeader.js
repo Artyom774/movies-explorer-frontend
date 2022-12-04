@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../images/header__logo.svg';
 import { Link } from "react-router-dom";
 
-function MainHeader({loggedIn}) {
+function MainHeader({ loggedIn }) {
   return (
     <header className="header header_theme_gray">
       <Link to="/"><img className="header__logo" src={logo} alt="лого" /></Link>

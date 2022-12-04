@@ -1,6 +1,6 @@
 import React from 'react';
 
-function SearchForm({searchMovies, searchFilter, setSearchFilter, page}) {
+function SearchForm({ searchMovies, searchFilter, setSearchFilter, page }) {
   const [search, setSearch] = React.useState('');
   const [searchError, setSearchError] = React.useState(true);
   const [errorText, setErrorText] = React.useState('Фильмы');

@@ -6,7 +6,7 @@ import Footer from './Footer';
 import Navigator from './Navigator';
 import { moviesApi } from '../utils/MoviesApi';
 
-function Movies(props) {
+function Movies({ onSavedMovie, onDeleteMovie }) {
   const [isPopupOpen, setIsPopupOoen] =React.useState(false);
   const [allMovies, setAllMovies] = React.useState([]);
   const [title, setTitle] = React.useState('');
@@ -42,9 +42,9 @@ function Movies(props) {
         <MoviesCardList
           page={'movies'}
           moviesArray={allMovies}
-          onSavedMovie={props.onSavedMovie}
+          onSavedMovie={onSavedMovie}
           title={title}
-          onDeleteMovie={props.onDeleteMovie}
+          onDeleteMovie={onDeleteMovie}
           searchFilter={searchFilter}
           addCardsNumber={addCardsNumber}
           setAddCardsNumber={setAddCardsNumber} />

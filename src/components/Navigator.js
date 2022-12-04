@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-function Navigator({isOpen, setIsPopupOoen, page}) {
+function Navigator({ isOpen, setIsPopupOoen, page }) {
   function closePopup() {
     setIsPopupOoen(false);
   }

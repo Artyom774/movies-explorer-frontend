@@ -3,7 +3,7 @@ import Header from './Header';
 import Navigator from './Navigator';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
-function Profile(props) {
+function Profile({ updatehUserInfo, setLoggedIn, setHistory }) {
   const currentUser = React.useContext(CurrentUserContext);
   const [isPopupOpen, setIsPopupOoen] =React.useState(false);
   const [inputName, setInputName] = React.useState('');
@@ -19,15 +19,15 @@ function Profile(props) {
 
   function handleFormSubmit(e) { // отправить форму
     e.preventDefault();
-    props.updatehUserInfo(inputName, inputEmail);
+    updatehUserInfo(inputName, inputEmail);
   }
 
   function handleSignOut() {
-    props.setLoggedIn(false);
+    setLoggedIn(false);
     localStorage.removeItem('token');
     localStorage.removeItem('searchingFilter');
     localStorage.removeItem('searchingText');
-    props.setHistory('/');
+    setHistory('/');
   }
 
   React.useEffect(()=>{
