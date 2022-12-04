@@ -3,6 +3,7 @@ import React from 'react';
 function SearchForm({searchMovies, searchFilter, setSearchFilter, page}) {
   const [search, setSearch] = React.useState('');
   const [searchError, setSearchError] = React.useState(true);
+  const [errorText, setErrorText] = React.useState('Фильмы');
   const [formValid, setFormValid] = React.useState(false);
 
   function handleSearch(e) { // отслеживать изменения в поле ввода
@@ -11,6 +12,7 @@ function SearchForm({searchMovies, searchFilter, setSearchFilter, page}) {
       setSearchError(false);
     } else {
       setSearchError(true);
+      setErrorText('Нужно ввести ключевое слово');
     };
   }
 
@@ -51,7 +53,7 @@ function SearchForm({searchMovies, searchFilter, setSearchFilter, page}) {
     <section className="search-form-section">
       <form className="search-form" onSubmit={handleSearchSubmit} noValidate>
         <div className="search-form__input-block">
-          <input type="text" id="film-input" name="search" value={search} onChange={handleSearch} required className="search-form__input" placeholder="Фильм"></input>
+          <input type="text" id="film-input" name="search" value={search} onChange={handleSearch} required className="search-form__input" placeholder={errorText}></input>
           <button
             disabled={!formValid}
             type="submit"
