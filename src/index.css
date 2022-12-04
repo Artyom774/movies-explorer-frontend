@@ -77,6 +77,7 @@
   @import url('./blocks/movies-card-list/__text/movies-card-list__text.css');
   @import url('./blocks/movies-card-list/__button/movies-card-list__button.css');
 @import url('./blocks/movies-card/movies-card.css');
+  @import url('./blocks/movies-card/__link/movies-card__link.css');
   @import url('./blocks/movies-card/__poster/movies-card__poster.css');
   @import url('./blocks/movies-card/__row/movies-card__row.css');
   @import url('./blocks/movies-card/__title/movies-card__title.css');

@@ -3,7 +3,9 @@ import React from 'react';
 function MoviesCard({ page, card, onDeleteMovie, onSavedMovie, isLiked, myCardId }) {
   return (
     <div className="movies-card">
-      <img className="movies-card__poster" src={(page === "movies" ? `https://api.nomoreparties.co${card.image.url}` : card.image)} alt="постер" />
+      <a className="movies-card__link" href={card.trailerLink} target="_blank"  rel="noreferrer">
+        <img className="movies-card__poster" src={(page === "movies" ? `https://api.nomoreparties.co${card.image.url}` : card.image)} alt="постер" />
+      </a>
       <div className="movies-card__row">
         <p className="movies-card__title">{card.nameRU}</p>
         <button
