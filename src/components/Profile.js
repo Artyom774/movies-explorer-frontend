@@ -4,13 +4,13 @@ import Navigator from './Navigator';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
 function Profile({ updatehUserInfo, setLoggedIn, setHistory }) {
-  const currentUser = React.useContext(CurrentUserContext);
-  const [isPopupOpen, setIsPopupOoen] =React.useState(false);
-  const [name, setName] = React.useState('');
-  const [email, setEmail] = React.useState('');
-  const [nameError, setNameError] = React.useState(false);
-  const [emailError, setEmailError] = React.useState(false);
-  const [formValid, setFormValid] = React.useState(false);
+  const currentUser = React.useContext(CurrentUserContext); // данные о текущем пользователе
+  const [isPopupOpen, setIsPopupOoen] =React.useState(false); // открыть окно с навигацией?
+  const [name, setName] = React.useState(''); // значение инпута в поле name
+  const [email, setEmail] = React.useState(''); // значение инпута в поле email
+  const [nameError, setNameError] = React.useState(false); // есть ошибки в поле name?
+  const [emailError, setEmailError] = React.useState(false); // есть ошибки в поле email?
+  const [formValid, setFormValid] = React.useState(false); // форма удовлетворяет валилации?
 
   function handleName(e) { // отслеживать изменения в поле ввода
     setName(e.target.value);

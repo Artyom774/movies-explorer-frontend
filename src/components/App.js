@@ -14,10 +14,10 @@ import { registerUser, authorization } from '../Auth';
 import { mainApi } from '../utils/MainApi';
 
 function App(props) {
-  const [loggedIn, setLoggedIn] = React.useState(false);
-  const [currentUser, setCurrentUser] = React.useState({});
-  const [myMovies, setMyMovies] = React.useState([]);
-  const [isSuccess, setIsSuccess] = React.useState(true);
+  const [loggedIn, setLoggedIn] = React.useState(false); // пользователь вошёл в учётную запись или нет?
+  const [currentUser, setCurrentUser] = React.useState({}); // данные о текущем пользователе
+  const [myMovies, setMyMovies] = React.useState([]); // сохранённые фильмы текущего пользователя
+  const [isSuccess, setIsSuccess] = React.useState(true); // отвечает за вывод сообщения об ошибке при регистрации и авторизации
 
   function authorizateUser(email, password) { // вход на сайт
     authorization(email, password)
