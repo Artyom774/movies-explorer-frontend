@@ -150,16 +150,18 @@ function App(props) {
               setLoggedIn={setLoggedIn}
               setHistory={props.history.push}
               editProfileSubmitText={editProfileSubmitText} />
-            <Route exact path="/signin">
-              <Login
+            <ProtectedRoute
+              exact path="/signin"
+              loggedIn={!loggedIn}
+              component={Login}
               authorizateUser={authorizateUser}
               isSuccess={isSuccess} />
-            </Route>
-            <Route exact path="/signup">
-              <Register
+            <ProtectedRoute
+              exact path="/signup"
+              loggedIn={!loggedIn}
+              component={Register}
               registrationUser={registrationUser}
               isSuccess={isSuccess} />
-            </Route>
             <Route exact path="/">
               <Main
                 loggedIn={loggedIn} />
