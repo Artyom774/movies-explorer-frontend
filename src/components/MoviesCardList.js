@@ -1,7 +1,9 @@
 import React from 'react';
 import MoviesCard from './MoviesCard';
+import { MyMoviesContext } from '../contexts/MyMoviesContext';
 
 function MoviesCardList(props) {
+  const myMovies = React.useContext(MyMoviesContext);
   const [windowWidth, setWindowWidth] = React.useState(320);
   const [cardsNumber, setCardsNumber] = React.useState(0);
   const [renderingCards, setRenderingCards] = React.useState([]);
@@ -46,7 +48,7 @@ function MoviesCardList(props) {
       }
       )
     } else {
-      props.moviesArray.forEach((card) => {
+      myMovies.forEach((card) => {
         if ((props.title === '' || card.nameRU.includes(props.title)) && (!props.searchFilter || card.duration <= 40)) {
           newArray.push(card);
         }
@@ -55,7 +57,7 @@ function MoviesCardList(props) {
     const slicingArray = newArray.slice(0, cardsNumber + props.addCardsNumber);
     setShowedAddButton(newArray.length > slicingArray.length);
     setRenderingCards([...slicingArray]);
-  }, [props.moviesArray, props.searchFilter, props.addCardsNumber])
+  }, [myMovies, props.moviesArray, props.searchFilter, props.addCardsNumber, cardsNumber])
 
   return (
     <section className="movies-card-list">
@@ -68,8 +70,8 @@ function MoviesCardList(props) {
               key={props.page === "movies" ? card.id : card._id}
               onDeleteMovie={props.onDeleteMovie}
               onSavedMovie={props.onSavedMovie}
-              isLiked={props.myMovies.some((myCard)=>{return myCard.movieId === card.id})}
-              myCardId={props.myMovies.find((myCard)=> myCard.movieId === card.id)} />)) :
+              isLiked={myMovies.some((myCard)=>{return myCard.movieId === card.id})}
+              myCardId={myMovies.find((myCard)=> myCard.movieId === card.id)} />)) :
           renderingCards.map((card) => (
             (props.title === '' || card.nameRU.includes(props.title)) &&
               <MoviesCard

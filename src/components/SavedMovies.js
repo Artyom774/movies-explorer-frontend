@@ -5,7 +5,7 @@ import MoviesCardList from './MoviesCardList';
 import Footer from './Footer';
 import Navigator from './Navigator';
 
-function SavedMovies({loggedIn, myMovies, onDeleteMovie}) {
+function SavedMovies({onDeleteMovie}) {
   const [isPopupOpen, setIsPopupOoen] =React.useState(false);
   const [searchFilter, setSearchFilter] = React.useState(false);  
   const [title, setTitle] = React.useState('');
@@ -15,13 +15,6 @@ function SavedMovies({loggedIn, myMovies, onDeleteMovie}) {
     setAddCardsNumber(0);
     setTitle(word);
   }
-
-  React.useState(()=>{
-    const savedFilter = localStorage.getItem('searchingSavedFilter');
-    if (savedFilter === 'true') {
-      setSearchFilter(true);
-    }
-  }, [])
 
   return (
     <div className="page">
@@ -33,7 +26,6 @@ function SavedMovies({loggedIn, myMovies, onDeleteMovie}) {
           setSearchFilter={setSearchFilter}
           page={'saved-movies'} />
         <MoviesCardList
-          moviesArray={myMovies}
           page={'saved-movies'}
           onDeleteMovie={onDeleteMovie}
           searchFilter={searchFilter}

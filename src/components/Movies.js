@@ -44,7 +44,6 @@ function Movies(props) {
           moviesArray={allMovies}
           onSavedMovie={props.onSavedMovie}
           title={title}
-          myMovies={props.myMovies}
           onDeleteMovie={props.onDeleteMovie}
           searchFilter={searchFilter}
           addCardsNumber={addCardsNumber}

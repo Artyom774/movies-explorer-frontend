@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
+import { MyMoviesContext } from '../contexts/MyMoviesContext';
 import ProtectedRoute from './ProtectedRoute';
 import Main from './Main';
 import Movies from './Movies';
@@ -15,8 +16,8 @@ import { mainApi } from '../utils/MainApi';
 function App(props) {
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [currentUser, setCurrentUser] = React.useState({});
-  const [isSuccess, setIsSuccess] = React.useState(true);
   const [myMovies, setMyMovies] = React.useState([]);
+  const [isSuccess, setIsSuccess] = React.useState(true);
 
   function authorizateUser(email, password) { // вход на сайт
     authorization(email, password)
@@ -104,47 +105,49 @@ function App(props) {
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
-      <div className="App">
-        <Switch>
-          <ProtectedRoute
-            exact path="/movies"
-            loggedIn={loggedIn}
-            component={Movies}
-            onSavedMovie={handleSavedMovie}
-            onDeleteMovie={handleDeleteSavedMovie}
-            myMovies={myMovies} />
-          <ProtectedRoute
-            exact path="/saved-movies"
-            loggedIn={loggedIn}
-            component={SavedMovies}
-            myMovies={myMovies}
-            onDeleteMovie={handleDeleteSavedMovie} />
-          <ProtectedRoute
-            exact path="/profile"
-            loggedIn={loggedIn}
-            component={Profile}
-            updatehUserInfo={updatehUserInfo}
-            setLoggedIn={setLoggedIn}
-            setHistory={props.history.push} />
-          <Route exact path="/signin">
-            <Login
-            authorizateUser={authorizateUser}
-            isSuccess={isSuccess} />
-          </Route>
-          <Route exact path="/signup">
-            <Register
-            registrationUser={registrationUser}
-            isSuccess={isSuccess} />
-          </Route>
-          <Route exact path="/">
-            <Main
-              loggedIn={loggedIn} />
-          </Route>
-          <Route path="/">
-            <NotFound />
-          </Route>
-        </Switch>
-      </div>
+      <MyMoviesContext.Provider value={myMovies}>
+        <div className="App">
+          <Switch>
+            <ProtectedRoute
+              exact path="/movies"
+              loggedIn={loggedIn}
+              component={Movies}
+              onSavedMovie={handleSavedMovie}
+              onDeleteMovie={handleDeleteSavedMovie}
+              myMovies={myMovies} />
+            <ProtectedRoute
+              exact path="/saved-movies"
+              loggedIn={loggedIn}
+              component={SavedMovies}
+              myMovies={myMovies}
+              onDeleteMovie={handleDeleteSavedMovie} />
+            <ProtectedRoute
+              exact path="/profile"
+              loggedIn={loggedIn}
+              component={Profile}
+              updatehUserInfo={updatehUserInfo}
+              setLoggedIn={setLoggedIn}
+              setHistory={props.history.push} />
+            <Route exact path="/signin">
+              <Login
+              authorizateUser={authorizateUser}
+              isSuccess={isSuccess} />
+            </Route>
+            <Route exact path="/signup">
+              <Register
+              registrationUser={registrationUser}
+              isSuccess={isSuccess} />
+            </Route>
+            <Route exact path="/">
+              <Main
+                loggedIn={loggedIn} />
+            </Route>
+            <Route path="/">
+              <NotFound />
+            </Route>
+          </Switch>
+        </div>
+      </MyMoviesContext.Provider>
     </CurrentUserContext.Provider>
   );
 }

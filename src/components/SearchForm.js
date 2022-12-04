@@ -23,10 +23,7 @@ function SearchForm({searchMovies, searchFilter, setSearchFilter, page}) {
     if (page === 'movies') {
       localStorage.setItem('searchingText', search);
       localStorage.setItem('searchingFilter', searchFilter);
-    } else {
-      localStorage.setItem('searchingSavedText', search);
-      localStorage.setItem('searchingSavedFilter', searchFilter);
-    }
+    };
     searchMovies(search);
   }
 
@@ -37,13 +34,8 @@ function SearchForm({searchMovies, searchFilter, setSearchFilter, page}) {
         setSearch(savedText);
         searchMovies(savedText);
       }
-    } else {
-      const savedText = localStorage.getItem('searchingSavedText');
-      console.log(savedText);
-      if (savedText) {
-        setSearch(savedText);
-        searchMovies(savedText);
-      }
+    } else {      
+      searchMovies('');
     };
   }, [])
 
