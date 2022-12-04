@@ -3,7 +3,7 @@ import Header from './Header';
 import Navigator from './Navigator';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
-function Profile({ updatehUserInfo, setLoggedIn, setHistory }) {
+function Profile({ updatehUserInfo, setLoggedIn, setHistory, editProfileSubmitText }) {
   const currentUser = React.useContext(CurrentUserContext); // данные о текущем пользователе
   const [isPopupOpen, setIsPopupOoen] =React.useState(false); // открыть окно с навигацией?
   const [name, setName] = React.useState(''); // значение инпута в поле name
@@ -51,7 +51,7 @@ function Profile({ updatehUserInfo, setLoggedIn, setHistory }) {
     } else {
       setFormValid(true);
     };
-  }, [name, email, nameError, emailError])
+  }, [name, email, nameError, emailError, currentUser])
 
   React.useEffect(()=>{
     setName(currentUser.name);
@@ -86,10 +86,10 @@ function Profile({ updatehUserInfo, setLoggedIn, setHistory }) {
               placeholder="E-mail"></input>
           </div>
           <button
-            disabled={!formValid}
+            disabled={!formValid || editProfileSubmitText !== 'Редактировать'}
             type="submit"
-            className={`form__submit form__submit_theme_white ` + (!formValid ? `color_gray` : ``)}>
-              Редактировать
+            className={`form__submit form__submit_theme_white ` + ((!formValid || editProfileSubmitText !== 'Редактировать') ? `color_gray` : ``)}>
+              {editProfileSubmitText}
           </button>
           <button type="button" className="form__sign-out" onClick={handleSignOut}>Выйти из аккаунта</button>  
         </form>

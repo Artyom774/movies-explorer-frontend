@@ -18,6 +18,7 @@ function App(props) {
   const [currentUser, setCurrentUser] = React.useState({}); // данные о текущем пользователе
   const [myMovies, setMyMovies] = React.useState([]); // сохранённые фильмы текущего пользователя
   const [isSuccess, setIsSuccess] = React.useState(true); // отвечает за вывод сообщения об ошибке при регистрации и авторизации
+  const [editProfileSubmitText, setEditProfileSubmitText] = React.useState('Редактировать'); // текст на кнопке submit в компоненте Profile
 
   function authorizateUser(email, password) { // вход на сайт
     authorization(email, password)
@@ -56,14 +57,21 @@ function App(props) {
   }
 
   function updatehUserInfo(name, email) { // обновление информации о пользователе
+    setEditProfileSubmitText('Редактирование...');
     const token = localStorage.getItem('token');
     const data = {name: name, email: email};
     if (token) {
       mainApi.refreshUserInfo(data, token)
         .then((res) => {
           setCurrentUser(res);
+          setEditProfileSubmitText('Данные обновлены!');
+          setTimeout(() => setEditProfileSubmitText('Редактировать'), 2000);
         })
-        .catch(err => console.log(err));
+        .catch((err) => {
+          setEditProfileSubmitText('Ошибка!');
+          setTimeout(() => setEditProfileSubmitText('Редактировать'), 2000);
+          console.log(err);
+        });
     }
   }
 
@@ -125,7 +133,8 @@ function App(props) {
               component={Profile}
               updatehUserInfo={updatehUserInfo}
               setLoggedIn={setLoggedIn}
-              setHistory={props.history.push} />
+              setHistory={props.history.push}
+              editProfileSubmitText={editProfileSubmitText} />
             <Route exact path="/signin">
               <Login
               authorizateUser={authorizateUser}
