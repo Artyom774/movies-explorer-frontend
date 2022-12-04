@@ -24,19 +24,21 @@ function MoviesCardList({ page, moviesArray, title, searchFilter, setAddCardsNum
 
   React.useEffect(() => {
     setWindowWidth(window.innerWidth);
-  }, [])
-
-  React.useEffect(() => {
-    if (windowWidth < 644) {
+    if (window.innerWidth < 644) {
       setCardsNumber(5);
     } else {
-      if (windowWidth < 1008) {
+      if (window.innerWidth < 1008) {
         setCardsNumber(8);
       } else {
         setCardsNumber(12);
       };
     };
-  }, [windowWidth])
+    window.addEventListener("resize", () => {
+      setTimeout(() => {
+        setWindowWidth(window.innerWidth);
+      }, 1000);
+    });
+  }, [])
 
   React.useEffect(() => {
     setWindowWidth(window.innerWidth);
@@ -56,9 +58,13 @@ function MoviesCardList({ page, moviesArray, title, searchFilter, setAddCardsNum
       })
     };
     const slicingArray = newArray.slice(0, cardsNumber + addCardsNumber);
-    setShowedAddButton(newArray.length > slicingArray.length);
+    if (page === 'movies') {
+      setShowedAddButton(newArray.length > slicingArray.length);
+    } else {
+      setShowedAddButton(newArray.map((card) => (title === '' || card.nameRU.includes(title))).length > slicingArray.length);
+    };
     setRenderingCards([...slicingArray]);
-  }, [myMovies, moviesArray, searchFilter, addCardsNumber, cardsNumber, title])
+  }, [myMovies, moviesArray, searchFilter, addCardsNumber, cardsNumber, title, windowWidth])
 
   return (
     <section className="movies-card-list">
@@ -91,7 +97,7 @@ function MoviesCardList({ page, moviesArray, title, searchFilter, setAddCardsNum
         className={`movies-card-list__text ` + (moviesError ? `` : `display_none`)}>
           Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.
       </p>
-      <button className={`movies-card-list__button ` + (showedAddButton ? `` : `display_none`)} onClick={handleAddCard}>{page === "movies" ? "Ещё" : ""}</button> 
+      <button className={`movies-card-list__button ` + (showedAddButton ? `` : `display_none`)} onClick={handleAddCard}>Ещё</button> 
     </section>
   );
 }
