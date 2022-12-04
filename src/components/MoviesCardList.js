@@ -2,7 +2,7 @@ import React from 'react';
 import MoviesCard from './MoviesCard';
 import { MyMoviesContext } from '../contexts/MyMoviesContext';
 
-function MoviesCardList({ page, moviesArray, title, searchFilter, setAddCardsNumber, addCardsNumber, onDeleteMovie, onSavedMovie }) {
+function MoviesCardList({ page, moviesArray, title, searchFilter, setAddCardsNumber, addCardsNumber, onDeleteMovie, onSavedMovie, moviesError }) {
   const myMovies = React.useContext(MyMoviesContext);
   const [windowWidth, setWindowWidth] = React.useState(320);
   const [cardsNumber, setCardsNumber] = React.useState(0);
@@ -81,6 +81,10 @@ function MoviesCardList({ page, moviesArray, title, searchFilter, setAddCardsNum
                 onDeleteMovie={onDeleteMovie}
                 onSavedMovie={onSavedMovie} />)))}
       </div>
+      <p
+        className={`movies-card-list__text ` + (moviesError ? `` : `display_none`)}>
+          Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.
+      </p>
       <button className={`movies-card-list__button ` + (showedAddButton ? `` : `display_none`)} onClick={handleAddCard}>{page === "movies" ? "Ещё" : ""}</button> 
     </section>
   );

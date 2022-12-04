@@ -6,7 +6,7 @@ import Footer from './Footer';
 import Navigator from './Navigator';
 import { moviesApi } from '../utils/MoviesApi';
 
-function Movies({ onSavedMovie, onDeleteMovie }) {
+function Movies({ onSavedMovie, onDeleteMovie, allMoviesError, setAllMoviesError }) {
   const [isPopupOpen, setIsPopupOoen] =React.useState(false);
   const [allMovies, setAllMovies] = React.useState([]);
   const [title, setTitle] = React.useState('');
@@ -17,10 +17,14 @@ function Movies({ onSavedMovie, onDeleteMovie }) {
     setAddCardsNumber(0);
     moviesApi.getMovies()  // загрузка всех фильмов с сервиса
       .then((allMovies)=>{
+        setAllMoviesError(false);
         setTitle(word);
         setAllMovies(allMovies);
       })
-      .catch(err => console.log(err));
+      .catch((err) => {
+        setAllMoviesError(true);
+        console.log(err);
+      });
   }
 
   React.useState(()=>{
@@ -47,7 +51,8 @@ function Movies({ onSavedMovie, onDeleteMovie }) {
           onDeleteMovie={onDeleteMovie}
           searchFilter={searchFilter}
           addCardsNumber={addCardsNumber}
-          setAddCardsNumber={setAddCardsNumber} />
+          setAddCardsNumber={setAddCardsNumber}
+          moviesError={allMoviesError} />
       </main>
       <Footer />
       <Navigator isOpen={isPopupOpen} setIsPopupOoen={setIsPopupOoen} page={'movies'} />

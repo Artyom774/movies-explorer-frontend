@@ -18,6 +18,8 @@ function App(props) {
   const [currentUser, setCurrentUser] = React.useState({}); // данные о текущем пользователе
   const [myMovies, setMyMovies] = React.useState([]); // сохранённые фильмы текущего пользователя
   const [isSuccess, setIsSuccess] = React.useState(true); // отвечает за вывод сообщения об ошибке при регистрации и авторизации
+  const [allMoviesError, setAllMoviesError] = React.useState(false); // при загрузке всех фильмов с сервиса произошла ошибка?
+  const [savedMoviesError, setSavedMoviesError] = React.useState(false); // при загрузке сохранённых фильмов с сервера произошла ошибка?
   const [editProfileSubmitText, setEditProfileSubmitText] = React.useState('Редактировать'); // текст на кнопке submit в компоненте Profile
 
   function authorizateUser(email, password) { // вход на сайт
@@ -31,10 +33,14 @@ function App(props) {
           mainApi.getSavedMovies(localStorage.getItem('token'))  // загрузка сохранённых фильмов
         ])
           .then(([info, loadingMovies])=>{
+            setSavedMoviesError(false);
             setCurrentUser(info);
             setMyMovies(loadingMovies);
           })
-          .catch(err => console.log(err));
+          .catch((err) => {
+            setSavedMoviesError(true);
+            console.log(err);
+          });
       })
       .catch(err => {
         setIsSuccess(false);
@@ -121,12 +127,15 @@ function App(props) {
               loggedIn={loggedIn}
               component={Movies}
               onSavedMovie={handleSavedMovie}
-              onDeleteMovie={handleDeleteSavedMovie} />
+              onDeleteMovie={handleDeleteSavedMovie}
+              allMoviesError={allMoviesError}
+              setAllMoviesError={setAllMoviesError} />
             <ProtectedRoute
               exact path="/saved-movies"
               loggedIn={loggedIn}
               component={SavedMovies}
-              onDeleteMovie={handleDeleteSavedMovie} />
+              onDeleteMovie={handleDeleteSavedMovie}
+              savedMoviesError={savedMoviesError} />
             <ProtectedRoute
               exact path="/profile"
               loggedIn={loggedIn}

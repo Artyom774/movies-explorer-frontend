@@ -5,7 +5,7 @@ import MoviesCardList from './MoviesCardList';
 import Footer from './Footer';
 import Navigator from './Navigator';
 
-function SavedMovies({ onDeleteMovie }) {
+function SavedMovies({ onDeleteMovie, savedMoviesError }) {
   const [isPopupOpen, setIsPopupOoen] =React.useState(false);
   const [searchFilter, setSearchFilter] = React.useState(false);  
   const [title, setTitle] = React.useState('');
@@ -31,7 +31,8 @@ function SavedMovies({ onDeleteMovie }) {
           searchFilter={searchFilter}
           title={title}
           addCardsNumber={addCardsNumber}
-          setAddCardsNumber={setAddCardsNumber} />
+          setAddCardsNumber={setAddCardsNumber}
+          moviesError={savedMoviesError} />
       </main>
       <Footer />
       <Navigator isOpen={isPopupOpen} setIsPopupOoen={setIsPopupOoen} page={'saved-movies'} />
