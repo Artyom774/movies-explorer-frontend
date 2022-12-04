@@ -29,7 +29,6 @@ function App(props) {
         setLoggedIn(true);
         setIsSuccess(true);
         props.history.push('/movies');
-        setShowPreloader(true);
         Promise.all([
           mainApi.getUserInfo(localStorage.getItem('token')),  // запрос информации о профиле
           mainApi.getSavedMovies(localStorage.getItem('token'))  // загрузка сохранённых фильмов
@@ -42,8 +41,7 @@ function App(props) {
           .catch((err) => {
             setSavedMoviesError(true);
             console.log(err);
-          })
-          .finally(() => setShowPreloader(false));
+          });
       })
       .catch(err => {
         setIsSuccess(false);

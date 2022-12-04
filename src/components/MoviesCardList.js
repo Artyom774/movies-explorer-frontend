@@ -90,7 +90,7 @@ function MoviesCardList({ page, moviesArray, title, searchFilter, setAddCardsNum
       </div>
       {showPreloader && <Preloader />}
       <p
-        className={`movies-card-list__text ` + (renderingCards.length ? `display_none` : ``)}>
+        className={`movies-card-list__text ` + ((renderingCards.length || (page === 'movies' && moviesArray.length === 0)) ? `display_none` : ``)}>
           Ничего не найдено.
       </p>
       <p

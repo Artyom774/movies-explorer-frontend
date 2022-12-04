@@ -14,6 +14,19 @@ function Movies({ onSavedMovie, onDeleteMovie, allMoviesError, setAllMoviesError
   const [addCardsNumber, setAddCardsNumber] = React.useState(0);
 
   function searchMovies(word) {
+    if (allMovies.length === 0) {
+      setShowPreloader(true);
+      moviesApi.getMovies()  // загрузка всех фильмов с сервиса
+        .then((allMovies)=>{
+          setAllMoviesError(false);
+          setAllMovies(allMovies);
+        })
+        .catch((err) => {
+          setAllMoviesError(true);
+          console.log(err);
+        })
+        .finally(() => setShowPreloader(false));
+    }
     setAddCardsNumber(0);
     setTitle(word);
   }
@@ -23,17 +36,20 @@ function Movies({ onSavedMovie, onDeleteMovie, allMoviesError, setAllMoviesError
     if (savedFilter === 'true') {
       setSearchFilter(true);
     };
-    setShowPreloader(true);
-    moviesApi.getMovies()  // загрузка всех фильмов с сервиса
-      .then((allMovies)=>{
-        setAllMoviesError(false);
-        setAllMovies(allMovies);
-      })
-      .catch((err) => {
-        setAllMoviesError(true);
-        console.log(err);
-      })
-      .finally(() => setShowPreloader(false));
+    const savedText = localStorage.getItem('searchingText');
+    if (savedText !== null) {
+      setShowPreloader(true);
+      moviesApi.getMovies()  // загрузка всех фильмов с сервиса
+        .then((allMovies)=>{
+          setAllMoviesError(false);
+          setAllMovies(allMovies);
+        })
+        .catch((err) => {
+          setAllMoviesError(true);
+          console.log(err);
+        })
+        .finally(() => setShowPreloader(false));
+    };
   }, [])
 
   return (
