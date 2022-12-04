@@ -35,6 +35,7 @@ function SearchForm({searchMovies, searchFilter, setSearchFilter, page}) {
       const savedText = localStorage.getItem('searchingText');
       if (savedText) {
         setSearch(savedText);
+        searchMovies(savedText);
       }
     } else {
       const savedText = localStorage.getItem('searchingSavedText');
