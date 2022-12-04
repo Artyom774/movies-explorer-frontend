@@ -46,8 +46,8 @@ function App(props) {
   function registrationUser(email, password, name) { // регистрация нового пользователя
     registerUser(email, password, name)
       .then((res) => {
-        props.history.push('/signin');
         setIsSuccess(true);
+        authorizateUser(email, password);
       })
       .catch(err => {
         setIsSuccess(false);
