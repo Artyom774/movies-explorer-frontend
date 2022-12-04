@@ -9,7 +9,7 @@ function MoviesCardList(props) {
 
   function handleAddCard() {
     if (windowWidth < 644) {
-      props.setAddCardsNumber(props.addCardsNumber + 1);
+      props.setAddCardsNumber(props.addCardsNumber + 5);
     } else {
       if (windowWidth < 1008) {
         props.setAddCardsNumber(props.addCardsNumber + 2);

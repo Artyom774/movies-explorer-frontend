@@ -1,8 +1,10 @@
 import React from 'react';
 import Header from './Header';
 import Navigator from './Navigator';
+import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
 function Profile(props) {
+  const currentUser = React.useContext(CurrentUserContext);
   const [isPopupOpen, setIsPopupOoen] =React.useState(false);
   const [inputName, setInputName] = React.useState('');
   const [inputEmail, setInputEmail] = React.useState('');
@@ -27,15 +29,15 @@ function Profile(props) {
   }
 
   React.useEffect(()=>{
-    setInputName(props.name);
-    setInputEmail(props.email);
-  }, [props.name])
+    setInputName(currentUser.name);
+    setInputEmail(currentUser.email);
+  }, [currentUser])
 
   return (
     <div className="page">
       <Header setIsPopupOoen={setIsPopupOoen} />
       <main className="main">
-        <h1 className="main__form-title">{`Привет, ` + props.name + `!`}</h1>
+        <h1 className="main__form-title">{`Привет, ` + currentUser.name + `!`}</h1>
         <form className="form" onSubmit={handleFormSubmit}>
           <div className="form__input-block form__input-block_type_row">
             <p className="form__sign form__sign_type_row">Имя</p>
