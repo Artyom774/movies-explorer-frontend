@@ -165,7 +165,8 @@ function App(props) {
                 loggedIn={loggedIn} />
             </Route>
             <Route path="/">
-              <NotFound />
+              <NotFound
+                history={props.history} />
             </Route>
           </Switch>
         </div>

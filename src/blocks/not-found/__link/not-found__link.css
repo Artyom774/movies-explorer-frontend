@@ -6,6 +6,7 @@
   line-height: 15px;
   color: #3456f3;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .not-found__link:hover {
