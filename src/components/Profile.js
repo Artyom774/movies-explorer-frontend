@@ -25,6 +25,10 @@ function Profile(props) {
   function handleSignOut() {
     props.setLoggedIn(false);
     localStorage.removeItem('token');
+    localStorage.removeItem('searchingFilter');
+    localStorage.removeItem('searchingText');
+    localStorage.removeItem('searchingSavedFilter');
+    localStorage.removeItem('searchingSavedText');
     props.setHistory('/');
   }
 
