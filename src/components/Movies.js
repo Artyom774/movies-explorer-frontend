@@ -6,7 +6,7 @@ import Footer from './Footer';
 import Navigator from './Navigator';
 import { moviesApi } from '../utils/MoviesApi';
 
-function Movies({ onSavedMovie, onDeleteMovie, allMoviesError, setAllMoviesError }) {
+function Movies({ onSavedMovie, onDeleteMovie, allMoviesError, setAllMoviesError, showPreloader, setShowPreloader }) {
   const [isPopupOpen, setIsPopupOoen] =React.useState(false);
   const [allMovies, setAllMovies] = React.useState([]);
   const [title, setTitle] = React.useState('');
@@ -15,6 +15,7 @@ function Movies({ onSavedMovie, onDeleteMovie, allMoviesError, setAllMoviesError
 
   function searchMovies(word) {
     setAddCardsNumber(0);
+    setShowPreloader(true);
     moviesApi.getMovies()  // загрузка всех фильмов с сервиса
       .then((allMovies)=>{
         setAllMoviesError(false);
@@ -24,7 +25,8 @@ function Movies({ onSavedMovie, onDeleteMovie, allMoviesError, setAllMoviesError
       .catch((err) => {
         setAllMoviesError(true);
         console.log(err);
-      });
+      })
+      .finally(() => setShowPreloader(false));
   }
 
   React.useState(()=>{
@@ -52,7 +54,8 @@ function Movies({ onSavedMovie, onDeleteMovie, allMoviesError, setAllMoviesError
           searchFilter={searchFilter}
           addCardsNumber={addCardsNumber}
           setAddCardsNumber={setAddCardsNumber}
-          moviesError={allMoviesError} />
+          moviesError={allMoviesError}
+          showPreloader={showPreloader} />
       </main>
       <Footer />
       <Navigator isOpen={isPopupOpen} setIsPopupOoen={setIsPopupOoen} page={'movies'} />

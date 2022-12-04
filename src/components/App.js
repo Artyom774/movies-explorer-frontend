@@ -20,6 +20,7 @@ function App(props) {
   const [isSuccess, setIsSuccess] = React.useState(true); // отвечает за вывод сообщения об ошибке при регистрации и авторизации
   const [allMoviesError, setAllMoviesError] = React.useState(false); // при загрузке всех фильмов с сервиса произошла ошибка?
   const [savedMoviesError, setSavedMoviesError] = React.useState(false); // при загрузке сохранённых фильмов с сервера произошла ошибка?
+  const [showPreloader, setShowPreloader] = React.useState(false); // отвечает за отображение прелоадера во время загрузки карточек
   const [editProfileSubmitText, setEditProfileSubmitText] = React.useState('Редактировать'); // текст на кнопке submit в компоненте Profile
 
   function authorizateUser(email, password) { // вход на сайт
@@ -28,6 +29,7 @@ function App(props) {
         setLoggedIn(true);
         setIsSuccess(true);
         props.history.push('/movies');
+        setShowPreloader(true);
         Promise.all([
           mainApi.getUserInfo(localStorage.getItem('token')),  // запрос информации о профиле
           mainApi.getSavedMovies(localStorage.getItem('token'))  // загрузка сохранённых фильмов
@@ -40,7 +42,8 @@ function App(props) {
           .catch((err) => {
             setSavedMoviesError(true);
             console.log(err);
-          });
+          })
+          .finally(() => setShowPreloader(false));
       })
       .catch(err => {
         setIsSuccess(false);
@@ -129,13 +132,16 @@ function App(props) {
               onSavedMovie={handleSavedMovie}
               onDeleteMovie={handleDeleteSavedMovie}
               allMoviesError={allMoviesError}
-              setAllMoviesError={setAllMoviesError} />
+              setAllMoviesError={setAllMoviesError}
+              showPreloader={showPreloader}
+              setShowPreloader={setShowPreloader} />
             <ProtectedRoute
               exact path="/saved-movies"
               loggedIn={loggedIn}
               component={SavedMovies}
               onDeleteMovie={handleDeleteSavedMovie}
-              savedMoviesError={savedMoviesError} />
+              savedMoviesError={savedMoviesError}
+              showPreloader={showPreloader} />
             <ProtectedRoute
               exact path="/profile"
               loggedIn={loggedIn}
