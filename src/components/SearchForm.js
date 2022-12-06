@@ -9,9 +9,9 @@ function SearchForm({ searchMovies, searchFilter, setSearchFilter, page }) {
   }
 
   function handleFilterClick() { // переключить фильтр поиска
-    /*if (page === 'movies') {
+    if (page === 'movies') {
       localStorage.setItem('searchingFilter', !searchFilter);
-    };*/
+    };
     setSearchFilter(!searchFilter);
   }
 
