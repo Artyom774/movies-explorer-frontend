@@ -17,6 +17,7 @@ function App(props) {
   const [loggedIn, setLoggedIn] = React.useState(false); // пользователь вошёл в учётную запись или нет?
   const [currentUser, setCurrentUser] = React.useState({}); // данные о текущем пользователе
   const [myMovies, setMyMovies] = React.useState([]); // сохранённые фильмы текущего пользователя
+  const [allMovies, setAllMovies] = React.useState([]); // массив всех фильмов с сервиса
   const [isSuccess, setIsSuccess] = React.useState(true); // отвечает за вывод сообщения об ошибке при регистрации и авторизации
   const [allMoviesError, setAllMoviesError] = React.useState(false); // при загрузке всех фильмов с сервиса произошла ошибка?
   const [savedMoviesError, setSavedMoviesError] = React.useState(false); // при загрузке сохранённых фильмов с сервера произошла ошибка?
@@ -132,7 +133,9 @@ function App(props) {
               allMoviesError={allMoviesError}
               setAllMoviesError={setAllMoviesError}
               showPreloader={showPreloader}
-              setShowPreloader={setShowPreloader} />
+              setShowPreloader={setShowPreloader}
+              allMovies={allMovies}
+              setAllMovies={setAllMovies} />
             <ProtectedRoute
               exact path="/saved-movies"
               loggedIn={loggedIn}

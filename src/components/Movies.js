@@ -6,9 +6,8 @@ import Footer from './Footer';
 import Navigator from './Navigator';
 import { moviesApi } from '../utils/MoviesApi';
 
-function Movies({ onSavedMovie, onDeleteMovie, allMoviesError, setAllMoviesError, showPreloader, setShowPreloader }) {
+function Movies({ onSavedMovie, onDeleteMovie, allMoviesError, setAllMoviesError, showPreloader, setShowPreloader, allMovies, setAllMovies }) {
   const [isPopupOpen, setIsPopupOoen] =React.useState(false);
-  const [allMovies, setAllMovies] = React.useState([]);
   const [title, setTitle] = React.useState('');
   const [searchFilter, setSearchFilter] = React.useState(false);
   const [addCardsNumber, setAddCardsNumber] = React.useState(0);
