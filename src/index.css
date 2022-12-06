@@ -67,7 +67,6 @@
   @import url('./blocks/search-form/__input-block/search-form__input-block.css');
   @import url('./blocks/search-form/__input/search-form__input.css');
   @import url('./blocks/search-form/__submit/search-form__submit.css');
-    @import url('./blocks/search-form/__submit/_disabled/search-form__submit_disabled.css');
   @import url('./blocks/search-form/__flex-block/search-form__flex-block.css');
   @import url('./blocks/search-form/__text/search-form__text.css');
   @import url('./blocks/search-form/__filter/search-form__filter.css');

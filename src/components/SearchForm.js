@@ -2,18 +2,10 @@ import React from 'react';
 
 function SearchForm({ searchMovies, searchFilter, setSearchFilter, page }) {
   const [search, setSearch] = React.useState('');
-  const [searchError, setSearchError] = React.useState(true);
   const [errorText, setErrorText] = React.useState('Фильмы');
-  const [formValid, setFormValid] = React.useState(false);
 
   function handleSearch(e) { // отслеживать изменения в поле ввода
     setSearch(e.target.value);
-    if (e.target.value.length > 0) {
-      setSearchError(false);
-    } else {
-      setSearchError(true);
-      setErrorText('Нужно ввести ключевое слово');
-    };
   }
 
   function handleFilterClick() { // переключить фильтр поиска
@@ -25,11 +17,15 @@ function SearchForm({ searchMovies, searchFilter, setSearchFilter, page }) {
 
   function handleSearchSubmit(e) { // найти фильмы
     e.preventDefault();
-    if (page === 'movies') {
-      localStorage.setItem('searchingText', search);
-      localStorage.setItem('searchingFilter', searchFilter);
+    if (search.length > 0) {
+      if (page === 'movies') {
+        localStorage.setItem('searchingText', search);
+        localStorage.setItem('searchingFilter', searchFilter);
+      };
+      searchMovies(search);
+    } else {
+      setErrorText('Нужно ввести ключевое слово');
     };
-    searchMovies(search);
   }
 
   React.useState(()=>{
@@ -43,24 +39,15 @@ function SearchForm({ searchMovies, searchFilter, setSearchFilter, page }) {
       searchMovies('');
     };
   }, [])
-
-  React.useEffect(() => {
-    if (searchError) {
-      setFormValid(false);
-    } else {
-      setFormValid(true);
-    };
-  }, [searchError])
   
   return (
     <section className="search-form-section">
       <form className="search-form" onSubmit={handleSearchSubmit} noValidate>
         <div className="search-form__input-block">
-          <input type="text" id="film-input" name="search" value={search} onChange={handleSearch} required className="search-form__input" placeholder={errorText}></input>
+          <input type="text" id="film-input" name="search" value={search} onChange={handleSearch} className="search-form__input" placeholder={errorText}></input>
           <button
-            disabled={!formValid}
             type="submit"
-            className={`search-form__submit ` + (!formValid ? `search-form__submit_disabled` : ``)}>
+            className="search-form__submit">
               Найти
           </button>
         </div>
