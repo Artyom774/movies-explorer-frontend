@@ -45,14 +45,14 @@ function MoviesCardList({ page, moviesArray, title, searchFilter, setAddCardsNum
     const newArray = [];
     if (page === 'movies') { 
       moviesArray.forEach((card) => {
-        if (card.nameRU.includes(title) && (!searchFilter || card.duration <= 40)) {
+        if (card.nameRU.toLowerCase().includes(title.toLowerCase()) && (!searchFilter || card.duration <= 40)) {
           newArray.push(card);
         }
       }
       )
     } else {
       myMovies.forEach((card) => {
-        if ((title === '' || card.nameRU.includes(title)) && (!searchFilter || card.duration <= 40)) {
+        if ((title === '' || card.nameRU.toLowerCase().includes(title.toLowerCase())) && (!searchFilter || card.duration <= 40)) {
           newArray.push(card);
         }
       })
@@ -80,7 +80,7 @@ function MoviesCardList({ page, moviesArray, title, searchFilter, setAddCardsNum
               isLiked={myMovies.some((myCard)=>{return myCard.movieId === card.id})}
               myCardId={myMovies.find((myCard)=> myCard.movieId === card.id)} />)) :
           renderingCards.map((card) => (
-            (title === '' || card.nameRU.includes(title)) &&
+            (title === '' || card.nameRU.toLowerCase().includes(title.toLowerCase())) &&
               <MoviesCard
                 page={page}
                 card={card}
