@@ -36,20 +36,6 @@ function Movies({ onSavedMovie, onDeleteMovie, allMoviesError, setAllMoviesError
     if (savedFilter === 'true') {
       setSearchFilter(true);
     };
-    const savedText = localStorage.getItem('searchingText');
-    if (savedText !== null) {
-      setShowPreloader(true);
-      moviesApi.getMovies()  // загрузка всех фильмов с сервиса
-        .then((allMovies)=>{
-          setAllMoviesError(false);
-          setAllMovies(allMovies);
-        })
-        .catch((err) => {
-          setAllMoviesError(true);
-          console.log(err);
-        })
-        .finally(() => setShowPreloader(false));
-    };
   }, [])
 
   return (
