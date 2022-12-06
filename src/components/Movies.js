@@ -26,7 +26,7 @@ function Movies({ onSavedMovie, onDeleteMovie, allMoviesError, setAllMoviesError
           console.log(err);
         })
         .finally(() => setShowPreloader(false));
-    }
+    };
     setAddCardsNumber(0);
     setTitle(word);
   }

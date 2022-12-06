@@ -12,7 +12,7 @@ function MoviesCardList({ page, moviesArray, title, searchFilter, setAddCardsNum
 
   function handleAddCard() {
     if (windowWidth < 644) {
-      setAddCardsNumber(addCardsNumber + 5);
+      setAddCardsNumber(addCardsNumber + 2);
     } else {
       if (windowWidth < 1008) {
         setAddCardsNumber(addCardsNumber + 2);
