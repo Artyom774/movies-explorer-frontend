@@ -39,7 +39,9 @@ function Movies({ onSavedMovie, onDeleteMovie, allMoviesError, setAllMoviesError
 
   return (
     <div className="page">
-      <Header setIsPopupOoen={setIsPopupOoen} />
+      <Header
+        setIsPopupOoen={setIsPopupOoen}
+        page={'movies'} />
       <main className="main">
         <SearchForm
           searchMovies={searchMovies}

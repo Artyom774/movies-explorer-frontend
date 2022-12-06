@@ -18,7 +18,9 @@ function SavedMovies({ onDeleteMovie, savedMoviesError, showPreloader }) {
 
   return (
     <div className="page">
-      <Header setIsPopupOoen={setIsPopupOoen} />
+      <Header
+        setIsPopupOoen={setIsPopupOoen}
+        page={'saved-movies'} />
       <main className="main">
         <SearchForm
           searchMovies={searchMovies}

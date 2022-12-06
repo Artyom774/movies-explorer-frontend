@@ -64,7 +64,9 @@ function Profile({ updatehUserInfo, setLoggedIn, setHistory, editProfileSubmitTe
 
   return (
     <div className="page">
-      <Header setIsPopupOoen={setIsPopupOoen} />
+      <Header
+        setIsPopupOoen={setIsPopupOoen}
+        page={'profile'} />
       <main className="main">
         <h1 className="main__form-title">{`Привет, ` + currentUser.name + `!`}</h1>
         <form className="form" onSubmit={handleFormSubmit} noValidate>
