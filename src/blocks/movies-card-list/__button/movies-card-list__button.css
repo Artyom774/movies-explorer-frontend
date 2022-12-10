@@ -10,3 +10,8 @@
   min-width: 320px;
   cursor: pointer;
 }
+
+.movies-card-list__button:hover {
+  opacity: .5;
+  transition-duration: 1s;
+}

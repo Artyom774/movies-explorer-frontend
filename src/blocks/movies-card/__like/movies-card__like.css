@@ -9,3 +9,8 @@
   border: none;
   cursor: pointer;
 }
+
+.movies-card__like:hover {
+  background-size: 28px 24px;
+  transition-duration: 1s;
+}

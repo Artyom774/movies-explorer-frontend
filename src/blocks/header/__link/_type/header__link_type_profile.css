@@ -1,0 +1,21 @@
+.header__link_type_profile {
+  display: none;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  margin-left: 15px;
+}
+
+@media (min-width: 425px) {
+  .header__link_type_profile {
+    margin-left: 30px;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1080px) {
+  .header__link_type_profile {
+    display: inline;
+    margin-left: 50px;
+  }
+}

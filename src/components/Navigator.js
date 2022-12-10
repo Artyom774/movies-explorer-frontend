@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
-function Navigator({isOpen, setIsPopupOoen, page}) {
+function Navigator({ isOpen, setIsPopupOoen, page }) {
   function closePopup() {
     setIsPopupOoen(false);
   }
@@ -10,14 +11,18 @@ function Navigator({isOpen, setIsPopupOoen, page}) {
       <div className="popup__container">
         <button type="button" className="popup__close" onClick={closePopup}></button>
         <div className="popup__links">
-          <a href="/" className="popup__link">Главная</a>
-          <a href="/movies" className={`popup__link ` + (page === "movies" ? `popup__link_underlined` : ``)}>Фильмы</a>
-          <a href="saved-movies" className={`popup__link ` + (page === "saved-movies" ? `popup__link_underlined` : ``)}>Сохранённые фильмы</a>
+          <Link className="popup__link" to="/">Главная</Link>
+          <Link
+            className={`popup__link ` + (page === "movies" ? `popup__link_underlined` : ``)}
+            to="/movies">Фильмы</Link>
+          <Link
+            className={`popup__link ` + (page === "saved-movies" ? `popup__link_underlined` : ``)}
+            to="saved-movies">Сохранённые фильмы</Link>
         </div>
-        <a className="popup__profile" href="/profile">
-          <p className="popup__profile-text">Аккаунт</p>
+        <Link className="popup__profile" to="/profile">
+          <p className={`popup__profile-text ` + (page === "profile" ? `popup__link_underlined` : ``)}>Аккаунт</p>
           <div className="popup__profile-icon" />
-        </a>
+        </Link>
       </div>
     </div>
   );

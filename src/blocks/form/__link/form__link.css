@@ -1,4 +1,4 @@
-.form__link.css {
+.form__link {
   margin: 0;
   padding: 0;
   font-size: 12px;
@@ -8,13 +8,13 @@
   text-decoration: none;
 }
 
-.form__link.css:hover {
+.form__link:hover {
   opacity: .5;
   transition-duration: 1s;
 }
 
 @media (min-width: 768px) {
-  .form__link.css {
+  .form__link {
     font-size: 14px;
     line-height: 17px;
   }

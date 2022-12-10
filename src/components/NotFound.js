@@ -1,11 +1,15 @@
 import React from 'react';
 
-function NotFound() {
+function NotFound({ history }) {
+  function handleButton() {
+    history.goBack();
+  }
+
   return (
     <div className="not-found">
       <h1 className="not-found__title">404</h1>
       <p className="not-found__text">Страница не найдена</p>
-      <a href="/" className="not-found__link">Назад</a>
+      <a className="not-found__link" onClick={handleButton}>Назад</a>
     </div>
   );
 }

@@ -1,0 +1,8 @@
+.color_gray {
+  color: gray;
+  cursor: default;
+}
+
+.color_gray:hover {
+  opacity: 1;
+}
