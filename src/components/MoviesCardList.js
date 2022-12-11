@@ -11,7 +11,7 @@ function MoviesCardList({ page, moviesArray, title, searchFilter, setAddCardsNum
   const [renderingCards, setRenderingCards] = React.useState([]);
   const [showedAddButton, setShowedAddButton] = React.useState(false);
 
-  function handleAddCard() {
+  const handleAddCard = () => {
     if (windowWidth < allConstants.pointChangeNumberCardsMobileTablet) {
       setAddCardsNumber(addCardsNumber + allConstants.addingMobileVisibilityCards);
     } else {

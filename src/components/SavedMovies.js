@@ -11,7 +11,7 @@ function SavedMovies({ onDeleteMovie, savedMoviesError, showPreloader }) {
   const [title, setTitle] = React.useState('');
   const [addCardsNumber, setAddCardsNumber] = React.useState(0);
 
-  function searchMovies(word) {
+  const searchMovies = (word) => {
     setAddCardsNumber(0);
     setTitle(word);
   }

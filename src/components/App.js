@@ -24,7 +24,7 @@ function App(props) {
   const [showPreloader, setShowPreloader] = React.useState(false); // отвечает за отображение прелоадера во время загрузки карточек
   const [editProfileSubmitText, setEditProfileSubmitText] = React.useState('Редактировать'); // текст на кнопке submit в компоненте Profile
 
-  function authorizateUser(email, password) { // вход на сайт
+  const authorizateUser = (email, password) => { // вход на сайт
     authorization(email, password)
       .then((res) => {
         setLoggedIn(true);
@@ -55,7 +55,7 @@ function App(props) {
       });
   }
 
-  function registrationUser(email, password, name) { // регистрация нового пользователя
+  const registrationUser = (email, password, name) => { // регистрация нового пользователя
     registerUser(email, password, name)
       .then((res) => {
         setIsSuccess(true);
@@ -67,7 +67,7 @@ function App(props) {
       });
   }
 
-  function updatehUserInfo(name, email) { // обновление информации о пользователе
+  const updatehUserInfo = (name, email) => { // обновление информации о пользователе
     setEditProfileSubmitText('Редактирование...');
     const token = localStorage.getItem('token');
     const data = {name: name, email: email};
@@ -92,7 +92,7 @@ function App(props) {
     }
   }
 
-  function handleSavedMovie(data) {  // сохранить карточку с фильмом
+  const handleSavedMovie = (data) => {  // сохранить карточку с фильмом
     const token = localStorage.getItem('token');
     mainApi
       .savedNewMovie(data, token)
@@ -110,7 +110,7 @@ function App(props) {
       });
   }
   
-  function handleDeleteSavedMovie(cardId) { // удалить карточку из сохранённых
+  const handleDeleteSavedMovie = (cardId) => { // удалить карточку из сохранённых
     const token = localStorage.getItem('token');
     mainApi
       .deleteMovie(cardId, token)

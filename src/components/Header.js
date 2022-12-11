@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function Header({ setIsPopupOoen, page }) {
 
-  function openPopup() {
+  const openPopup = () => {
     setIsPopupOoen(true);
   }
 

@@ -14,7 +14,7 @@ function Register({ registrationUser, isSuccess }) {
   const [passwordError, setPasswordError] = React.useState(true);
   const [formValid, setFormValid] = React.useState(false);
 
-  function blurHandler(e) {
+  const blurHandler = (e) => {
     switch (e.target.name) {
       case 'name': setNameDirty(true)
       break
@@ -27,7 +27,7 @@ function Register({ registrationUser, isSuccess }) {
     }
   }
 
-  function handleName(e) { // отслеживать изменения в поле ввода
+  const handleName = (e) => { // отслеживать изменения в поле ввода
     setName(e.target.value);
     const nameRegex = /^[А-ЯЁA-Z-\s]{2,30}$/umi;
     if (!nameRegex.test(String(e.target.value))) {
@@ -37,7 +37,7 @@ function Register({ registrationUser, isSuccess }) {
     };
   }
 
-  function handleEmail(e) { // отслеживать изменения в поле ввода
+  const handleEmail = (e) => { // отслеживать изменения в поле ввода
     setEmail(e.target.value);
     const emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     if (!emailRegex.test(String(e.target.value).toLowerCase())) {
@@ -47,7 +47,7 @@ function Register({ registrationUser, isSuccess }) {
     };
   }
 
-  function handlePassword(e) { // отслеживать изменения в поле ввода
+  const handlePassword = (e) => { // отслеживать изменения в поле ввода
     setPassword(e.target.value);
     if (e.target.value.length > 0) {
       setPasswordError(false);
@@ -56,7 +56,7 @@ function Register({ registrationUser, isSuccess }) {
     };
   }
 
-  function handleFormSubmit(e) { // отправить форму
+  const handleFormSubmit = (e) => { // отправить форму
     e.preventDefault();
     registrationUser(email, password, name);
   }

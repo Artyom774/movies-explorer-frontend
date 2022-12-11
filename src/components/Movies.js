@@ -12,7 +12,7 @@ function Movies({ onSavedMovie, onDeleteMovie, allMoviesError, setAllMoviesError
   const [searchFilter, setSearchFilter] = React.useState(false);
   const [addCardsNumber, setAddCardsNumber] = React.useState(0);
 
-  function searchMovies(word) {
+  const searchMovies = (word) => {
     if (allMovies.length === 0) {
       setShowPreloader(true);
       moviesApi.getMovies()  // загрузка всех фильмов с сервиса
