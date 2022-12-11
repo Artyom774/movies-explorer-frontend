@@ -2,6 +2,7 @@ import React from 'react';
 import MoviesCard from './MoviesCard';
 import { MyMoviesContext } from '../contexts/MyMoviesContext';
 import Preloader from './Preloader';
+import * as allConstants from '../utils/constants';
 
 function MoviesCardList({ page, moviesArray, title, searchFilter, setAddCardsNumber, addCardsNumber, onDeleteMovie, onSavedMovie, moviesError, showPreloader }) {
   const myMovies = React.useContext(MyMoviesContext);
@@ -11,26 +12,26 @@ function MoviesCardList({ page, moviesArray, title, searchFilter, setAddCardsNum
   const [showedAddButton, setShowedAddButton] = React.useState(false);
 
   function handleAddCard() {
-    if (windowWidth < 644) {
-      setAddCardsNumber(addCardsNumber + 2);
+    if (windowWidth < allConstants.pointChangeNumberCardsMobileTablet) {
+      setAddCardsNumber(addCardsNumber + allConstants.addingMobileVisibilityCards);
     } else {
-      if (windowWidth < 1008) {
-        setAddCardsNumber(addCardsNumber + 2);
+      if (windowWidth < allConstants.pointChangeNumberCardsTabletDesktop) {
+        setAddCardsNumber(addCardsNumber + allConstants.addingTabletVisibilityCards);
       } else {
-        setAddCardsNumber(addCardsNumber + 3);
+        setAddCardsNumber(addCardsNumber + allConstants.addingDesktopVisibilityCards);
       };
     };
   }
 
   React.useEffect(() => {
     setWindowWidth(window.innerWidth);
-    if (window.innerWidth < 644) {
-      setCardsNumber(5);
+    if (window.innerWidth < allConstants.pointChangeNumberCardsMobileTablet) {
+      setCardsNumber(allConstants.startMobileVisibilityCards);
     } else {
-      if (window.innerWidth < 1008) {
-        setCardsNumber(8);
+      if (window.innerWidth < allConstants.pointChangeNumberCardsTabletDesktop) {
+        setCardsNumber(allConstants.startTabletVisibilityCards);
       } else {
-        setCardsNumber(12);
+        setCardsNumber(allConstants.startDesktopVisibilityCards);
       };
     };
     window.addEventListener("resize", () => {
@@ -45,14 +46,14 @@ function MoviesCardList({ page, moviesArray, title, searchFilter, setAddCardsNum
     const newArray = [];
     if (page === 'movies') { 
       moviesArray.forEach((card) => {
-        if (card.nameRU.toLowerCase().includes(title.toLowerCase()) && (!searchFilter || card.duration <= 40)) {
+        if (card.nameRU.toLowerCase().includes(title.toLowerCase()) && (!searchFilter || card.duration <= allConstants.kortfilmenDuration)) {
           newArray.push(card);
         }
       }
       )
     } else {
       myMovies.forEach((card) => {
-        if ((title === '' || card.nameRU.toLowerCase().includes(title.toLowerCase())) && (!searchFilter || card.duration <= 40)) {
+        if ((title === '' || card.nameRU.toLowerCase().includes(title.toLowerCase())) && (!searchFilter || card.duration <= allConstants.kortfilmenDuration)) {
           newArray.push(card);
         }
       })

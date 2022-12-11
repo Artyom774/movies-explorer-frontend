@@ -1,0 +1,9 @@
+export const kortfilmenDuration = 40;
+export const startMobileVisibilityCards = 5;
+export const startTabletVisibilityCards = 8;
+export const startDesktopVisibilityCards = 12;
+export const addingMobileVisibilityCards = 2;
+export const addingTabletVisibilityCards = 2;
+export const addingDesktopVisibilityCards = 3;
+export const pointChangeNumberCardsMobileTablet = 644;
+export const pointChangeNumberCardsTabletDesktop = 1008;
