@@ -3,7 +3,7 @@ import Header from './Header';
 import Navigator from './Navigator';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
-function Profile({ updatehUserInfo, setLoggedIn, setHistory, editProfileSubmitText }) {
+const Profile = ({ updatehUserInfo, setLoggedIn, setHistory, editProfileSubmitText }) => {
   const currentUser = React.useContext(CurrentUserContext); // данные о текущем пользователе
   const [isPopupOpen, setIsPopupOoen] =React.useState(false); // открыть окно с навигацией?
   const [name, setName] = React.useState(''); // значение инпута в поле name
@@ -12,7 +12,7 @@ function Profile({ updatehUserInfo, setLoggedIn, setHistory, editProfileSubmitTe
   const [emailError, setEmailError] = React.useState(false); // есть ошибки в поле email?
   const [formValid, setFormValid] = React.useState(false); // форма удовлетворяет валилации?
 
-  function handleName(e) { // отслеживать изменения в поле ввода
+  const handleName = (e) => { // отслеживать изменения в поле ввода
     setName(e.target.value);
     const nameRegex = /^[А-ЯЁA-Z-\s]{2,30}$/umi;
     if (!nameRegex.test(String(e.target.value))) {
@@ -22,7 +22,7 @@ function Profile({ updatehUserInfo, setLoggedIn, setHistory, editProfileSubmitTe
     };
   }
 
-  function handleEmail(e) { // отслеживать изменения в поле ввода
+  const handleEmail = (e) => { // отслеживать изменения в поле ввода
     setEmail(e.target.value);
     const emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     if (!emailRegex.test(String(e.target.value).toLowerCase())) {
@@ -32,12 +32,12 @@ function Profile({ updatehUserInfo, setLoggedIn, setHistory, editProfileSubmitTe
     };
   }
 
-  function handleFormSubmit(e) { // отправить форму
+  const handleFormSubmit = (e) => { // отправить форму
     e.preventDefault();
     updatehUserInfo(name, email);
   }
 
-  function handleSignOut() {
+  const handleSignOut = () => {
     setLoggedIn(false);
     localStorage.removeItem('token');
     localStorage.removeItem('searchingFilter');

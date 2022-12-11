@@ -6,13 +6,13 @@ import Footer from './Footer';
 import Navigator from './Navigator';
 import { moviesApi } from '../utils/MoviesApi';
 
-function Movies({ onSavedMovie, onDeleteMovie, allMoviesError, setAllMoviesError, showPreloader, setShowPreloader, allMovies, setAllMovies }) {
+const Movies = ({ onSavedMovie, onDeleteMovie, allMoviesError, setAllMoviesError, showPreloader, setShowPreloader, allMovies, setAllMovies }) => {
   const [isPopupOpen, setIsPopupOoen] =React.useState(false);
   const [title, setTitle] = React.useState('');
   const [searchFilter, setSearchFilter] = React.useState(false);
   const [addCardsNumber, setAddCardsNumber] = React.useState(0);
 
-  function searchMovies(word) {
+  const searchMovies = (word) => {
     if (allMovies.length === 0) {
       setShowPreloader(true);
       moviesApi.getMovies()  // загрузка всех фильмов с сервиса

@@ -7,7 +7,7 @@ import AboutMe from './AboutMe';
 import Portfolio from './Portfolio';
 import Footer from './Footer';
 
-function Main({ loggedIn }) {
+const Main = ({ loggedIn }) => {
   return (
     <div className="page">
       <MainHeader

@@ -1,7 +1,7 @@
 import React from 'react';
 import planet from '../images/promo__planet.svg';
 
-function Promo() {
+const Promo = () => {
   return (
     <section className="promo">
       <img className="promo__image" src={planet} alt="веб-мир" />

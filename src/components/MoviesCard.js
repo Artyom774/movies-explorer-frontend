@@ -1,6 +1,6 @@
 import React from 'react';
 
-function MoviesCard({ page, card, onDeleteMovie, onSavedMovie, isLiked, myCardId }) {
+const MoviesCard = ({ page, card, onDeleteMovie, onSavedMovie, isLiked, myCardId }) => {
   return (
     <div className="movies-card">
       <a className="movies-card__link" href={card.trailerLink} target="_blank"  rel="noreferrer">
