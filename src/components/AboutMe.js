@@ -1,7 +1,7 @@
 import React from 'react';
 import studentPhoto from '../images/student-photo.jpg';
 
-function AboutMe() {
+const AboutMe = () => {
   return (
     <section className="about-me">
       <h2 className="section-title">Студент</h2>

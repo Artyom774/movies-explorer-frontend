@@ -3,7 +3,7 @@ import Header from './Header';
 import Navigator from './Navigator';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
-function Profile({ updatehUserInfo, setLoggedIn, setHistory, editProfileSubmitText }) {
+const Profile = ({ updatehUserInfo, setLoggedIn, setHistory, editProfileSubmitText }) => {
   const currentUser = React.useContext(CurrentUserContext); // данные о текущем пользователе
   const [isPopupOpen, setIsPopupOoen] =React.useState(false); // открыть окно с навигацией?
   const [name, setName] = React.useState(''); // значение инпута в поле name

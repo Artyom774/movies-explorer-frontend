@@ -4,7 +4,7 @@ import { MyMoviesContext } from '../contexts/MyMoviesContext';
 import Preloader from './Preloader';
 import * as allConstants from '../utils/constants';
 
-function MoviesCardList({ page, moviesArray, title, searchFilter, setAddCardsNumber, addCardsNumber, onDeleteMovie, onSavedMovie, moviesError, showPreloader }) {
+const MoviesCardList = ({ page, moviesArray, title, searchFilter, setAddCardsNumber, addCardsNumber, onDeleteMovie, onSavedMovie, moviesError, showPreloader }) => {
   const myMovies = React.useContext(MyMoviesContext);
   const [windowWidth, setWindowWidth] = React.useState(320);
   const [cardsNumber, setCardsNumber] = React.useState(0);

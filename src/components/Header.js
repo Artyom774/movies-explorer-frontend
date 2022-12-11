@@ -2,8 +2,8 @@ import React from 'react';
 import logo from '../images/header__logo.svg';
 import { Link } from "react-router-dom";
 
-function Header({ setIsPopupOoen, page }) {
-
+const Header = ({ setIsPopupOoen, page }) => {
+  
   const openPopup = () => {
     setIsPopupOoen(true);
   }

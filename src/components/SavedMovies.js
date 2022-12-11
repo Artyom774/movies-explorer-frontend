@@ -5,7 +5,7 @@ import MoviesCardList from './MoviesCardList';
 import Footer from './Footer';
 import Navigator from './Navigator';
 
-function SavedMovies({ onDeleteMovie, savedMoviesError, showPreloader }) {
+const SavedMovies = ({ onDeleteMovie, savedMoviesError, showPreloader }) => {
   const [isPopupOpen, setIsPopupOoen] =React.useState(false);
   const [searchFilter, setSearchFilter] = React.useState(false);  
   const [title, setTitle] = React.useState('');

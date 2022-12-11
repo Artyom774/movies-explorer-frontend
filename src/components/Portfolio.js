@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Portfolio() {
+const Portfolio = () => {
   return (
     <section className="portfolio">
       <h2 className="portfolio__title">Портфолио</h2>

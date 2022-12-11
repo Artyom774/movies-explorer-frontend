@@ -1,6 +1,7 @@
 import React from 'react';
 
-function NotFound({ history }) {
+const NotFound = ({ history }) => {
+
   const handleButton = () => {
     history.goBack();
   }

@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../images/header__logo.svg';
 import { Link } from "react-router-dom";
 
-function Register({ registrationUser, isSuccess }) {
+const Register = ({ registrationUser, isSuccess }) => {
   const [name, setName] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');

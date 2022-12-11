@@ -13,7 +13,7 @@ import NotFound from './NotFound';
 import { registerUser, authorization } from '../Auth';
 import { mainApi } from '../utils/MainApi';
 
-function App(props) {
+const App = (props) => {
   const [loggedIn, setLoggedIn] = React.useState(false); // пользователь вошёл в учётную запись или нет?
   const [currentUser, setCurrentUser] = React.useState({}); // данные о текущем пользователе
   const [myMovies, setMyMovies] = React.useState([]); // сохранённые фильмы текущего пользователя
