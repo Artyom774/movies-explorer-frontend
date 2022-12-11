@@ -48,6 +48,9 @@ function App(props) {
         setIsSuccess(false);
         setLoggedIn(false);
         localStorage.removeItem('token');
+        localStorage.removeItem('searchingFilter');
+        localStorage.removeItem('searchingText');
+        props.history.push('/');
         console.log(err);
       });
   }
@@ -79,28 +82,50 @@ function App(props) {
           setEditProfileSubmitText('Ошибка!');
           setTimeout(() => setEditProfileSubmitText('Редактировать'), 2000);
           console.log(err);
+          if (err.status === 401) {
+            localStorage.removeItem('token');
+            localStorage.removeItem('searchingFilter');
+            localStorage.removeItem('searchingText');
+            props.history.push('/');
+          };
         });
     }
   }
 
-  function handleSavedMovie(data) {  // создать новую карточку
+  function handleSavedMovie(data) {  // сохранить карточку с фильмом
     const token = localStorage.getItem('token');
     mainApi
       .savedNewMovie(data, token)
       .then((newCard) => {
         setMyMovies([newCard, ...myMovies]);
       })
-      .catch(err => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        if (err.status === 401) {
+          localStorage.removeItem('token');
+          localStorage.removeItem('searchingFilter');
+          localStorage.removeItem('searchingText');
+          props.history.push('/');
+        };
+      });
   }
   
-  function handleDeleteSavedMovie(cardId) {
+  function handleDeleteSavedMovie(cardId) { // удалить карточку из сохранённых
     const token = localStorage.getItem('token');
     mainApi
       .deleteMovie(cardId, token)
       .then((res) => {
         setMyMovies((state) => state.filter((c) => c._id !== cardId));
       })
-      .catch(err => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        if (err.status === 401) {
+          localStorage.removeItem('token');
+          localStorage.removeItem('searchingFilter');
+          localStorage.removeItem('searchingText');
+          props.history.push('/');
+        };
+      });
   }
 
   React.useEffect(()=>{ // запрос информации при входе на сайт
@@ -115,7 +140,15 @@ function App(props) {
           setCurrentUser(info);
           setMyMovies(loadingMovies);
         })
-        .catch(err => console.log(err));
+        .catch((err) => {
+          console.log(err);
+          if (err.status === 401) {
+            localStorage.removeItem('token');
+            localStorage.removeItem('searchingFilter');
+            localStorage.removeItem('searchingText');
+            props.history.push('/');
+          };
+        });
     };
   }, [])
 
