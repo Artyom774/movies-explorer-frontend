@@ -10,5 +10,6 @@
   .techs__block {
     padding: 0;
     width: 100%;
+    row-gap: 10px;
   }
 }
